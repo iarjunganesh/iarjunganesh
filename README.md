@@ -8,6 +8,13 @@
   </a>
 </p>
 
+<!-- Official badge artwork — add the ARGUS / Agents League winner badge here when issued -->
+<p align="center">
+  <a href="https://www.credly.com/badges/9bd97539-00ed-40e7-990e-829e8592b1bd">
+    <img src="https://images.credly.com/size/220x220/images/9c5ac530-3a82-4970-ad25-d50fbe755ccb/blob" alt="NVIDIA Certified Professional: Agentic AI (NCP-AAI)" width="110" />
+  </a>
+</p>
+
 <p align="center">
   <a href="https://github.com/iarjunganesh/argus">
     <img src="https://img.shields.io/badge/🏆_Microsoft_Agents_League_2026-Hack_for_Good_Winner_(1_of_3)-FFB000?style=for-the-badge" alt="Hack for Good Winner" />
@@ -293,6 +300,7 @@ Designing resilient systems with **Azure Functions**, **Service Bus**, **OpenTel
 ## 📜 Certifications
 
 **10+ Professional Certifications** including:
+- [NVIDIA Certified Professional: Agentic AI (NCP-AAI)](https://www.credly.com/badges/9bd97539-00ed-40e7-990e-829e8592b1bd) — *NVIDIA* 🟩
 - [The Microsoft IQ Series: Foundry IQ](https://globalai.community/badges/b35714f6-9372-4716-985f-ad2058722e76/) — *Global AI Community*
 - [Machine Learning and AI Foundations: Prediction, Causation, and Statistical Inference](https://www.linkedin.com/learning/certificates/762902fe70c1d3b8f90eea011889a6d505aaf3aeff11cc72c0fe3f69cb96830a) — *LinkedIn Learning Community*
 - [Kubernetes Administration (LFS458)](https://ti-user-certificates.s3.amazonaws.com/e0df7fbf-a057-42af-8a1f-590912be5460/9e8e7f08-3f88-45a0-b0be-694276f9d2c6-arjun-ganesh-ac140df6-e13a-4ab9-978e-a78345e96415-certificate.pdf) — *The Linux Foundation*

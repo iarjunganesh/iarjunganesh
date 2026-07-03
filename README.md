@@ -53,23 +53,30 @@ My background spans backend engineering, platform modernization, cloud-native ar
       <p align="center">
         <a href="https://github.com/iarjunganesh/argus/actions/workflows/python-tests.yml"><img src="https://github.com/iarjunganesh/argus/actions/workflows/python-tests.yml/badge.svg?branch=main" alt="Tests" /></a>
         <a href="https://codecov.io/gh/iarjunganesh/argus"><img src="https://codecov.io/gh/iarjunganesh/argus/graph/badge.svg" alt="Coverage" /></a>
-        <img src="https://img.shields.io/badge/License-MIT-yellow?style=flat-square" alt="License MIT" />
+        <a href="https://github.com/iarjunganesh/argus/releases/tag/v1.6.0"><img src="https://img.shields.io/badge/release-latest-2ea44f?logo=github&logoColor=white" alt="Release" /></a>
+        <a href="https://github.com/iarjunganesh/argus/blob/main/LICENSE"><img src="https://img.shields.io/badge/License-MIT-yellow.svg?logo=opensourceinitiative&logoColor=white" alt="License: MIT" /></a>
         <a href="https://youtu.be/yaTNCgCwX4s"><img src="https://img.shields.io/badge/▶_Watch-5--min_demo-FF0000?style=flat-square&logo=youtube&logoColor=white" alt="Demo" /></a>
       </p>
       <p align="center">Multi-agent compliance intelligence platform on Azure AI Foundry — KYC, AML, and risk investigation through transparent, evidence-backed, auditable decisions.</p>
-      <!-- stack -->
+      <!-- services & media (same structure as Banker's Wrapped) -->
       <p align="center">
-        <img src="https://img.shields.io/badge/Python_3.11-3776AB?style=flat-square&logo=python&logoColor=white" alt="Python 3.11" />
-        <img src="https://img.shields.io/badge/Azure_AI_Foundry-0089D0?style=flat-square&logo=microsoftazure&logoColor=white" alt="Azure AI Foundry" />
-        <img src="https://img.shields.io/badge/Semantic_Kernel-5C2D91?style=flat-square&logo=microsoft&logoColor=white" alt="Semantic Kernel" />
-        <img src="https://img.shields.io/badge/A2A-00C7B7?style=flat-square&logo=probot&logoColor=white" alt="A2A" />
-        <img src="https://img.shields.io/badge/Azure_OpenAI_GPT--4o-412991?style=flat-square&logo=openai&logoColor=white" alt="Azure OpenAI GPT-4o" />
-        <img src="https://img.shields.io/badge/Foundry_IQ-0078D4?style=flat-square&logo=microsoft&logoColor=white" alt="Foundry IQ" />
-        <img src="https://img.shields.io/badge/Azure_AI_Search-0089D0?style=flat-square&logo=microsoftazure&logoColor=white" alt="Azure AI Search" />
-        <img src="https://img.shields.io/badge/Cosmos_DB-0089D0?style=flat-square&logo=microsoftazure&logoColor=white" alt="Cosmos DB" />
-        <img src="https://img.shields.io/badge/RAG-FF6F00?style=flat-square&logo=elasticsearch&logoColor=white" alt="RAG" />
-        <img src="https://img.shields.io/badge/MCP-00C7B7?style=flat-square" alt="MCP" />
-        <img src="https://img.shields.io/badge/Gradio-F97316?style=flat-square&logo=gradio&logoColor=white" alt="Gradio" />
+        <img src="https://img.shields.io/badge/Azure_AI_Foundry-0089D0?logo=microsoftazure&logoColor=white" alt="Azure AI Foundry" />
+        <img src="https://img.shields.io/badge/Azure_OpenAI-GPT--4o-412991?logo=microsoftazure&logoColor=white" alt="Azure OpenAI GPT-4o" />
+        <img src="https://img.shields.io/badge/Foundry_IQ-0078D4?logo=microsoft&logoColor=white" alt="Foundry IQ" />
+        <img src="https://img.shields.io/badge/Azure_AI_Search-0089D0?logo=microsoftazure&logoColor=white" alt="Azure AI Search" />
+        <img src="https://img.shields.io/badge/Cosmos_DB-0089D0?logo=microsoftazure&logoColor=white" alt="Cosmos DB" />
+        <img src="https://img.shields.io/badge/Semantic_Kernel-1.x-0078D4?logo=microsoft&logoColor=white" alt="Semantic Kernel" />
+        <img src="https://img.shields.io/badge/A2A-Agent_to_Agent-00C7B7?logo=probot&logoColor=white" alt="A2A" />
+        <img src="https://img.shields.io/badge/RAG-Hybrid_Search-FF6F00?logo=elasticsearch&logoColor=white" alt="RAG" />
+        <img src="https://img.shields.io/badge/MCP-00C7B7?logo=protocolsdotio&logoColor=white" alt="MCP" />
+      </p>
+      <!-- frontend badges (same structure as Banker's Wrapped) -->
+      <p align="center">
+        <img src="https://img.shields.io/badge/Gradio-UI-F97316?logo=gradio&logoColor=white" alt="Gradio" />
+      </p>
+      <!-- backend badges (same structure as Banker's Wrapped) -->
+      <p align="center">
+        <img src="https://img.shields.io/badge/Python-3.11-3776AB?logo=python&logoColor=white" alt="Python 3.11" />
       </p>
     </td>
     <!-- Banker's Wrapped — currently building -->
@@ -85,27 +92,34 @@ My background spans backend engineering, platform modernization, cloud-native ar
       <p align="center">
         <a href="https://github.com/iarjunganesh/bankers-wrapped/actions/workflows/ci.yml"><img src="https://github.com/iarjunganesh/bankers-wrapped/actions/workflows/ci.yml/badge.svg?branch=main" alt="CI" /></a>
         <a href="https://codecov.io/gh/iarjunganesh/bankers-wrapped"><img src="https://codecov.io/gh/iarjunganesh/bankers-wrapped/graph/badge.svg?token=GSBUXVREL7" alt="Coverage" /></a>
-        <img src="https://img.shields.io/badge/License-MIT-yellow?style=flat-square" alt="License MIT" />
+        <a href="https://github.com/iarjunganesh/bankers-wrapped/releases"><img src="https://img.shields.io/badge/release-latest-2ea44f?logo=github&logoColor=white" alt="Release" /></a>
+        <a href="https://github.com/iarjunganesh/bankers-wrapped/blob/main/LICENSE"><img src="https://img.shields.io/badge/License-MIT-yellow.svg?logo=opensourceinitiative&logoColor=white" alt="License: MIT" /></a>
+        <a href="#"><img src="https://img.shields.io/badge/%E2%96%B6_Watch-3--min_demo-FF0000?logo=youtube&logoColor=white" alt="Watch Video" /></a>
       </p>
       <p align="center">Spotify Wrapped — but for your bank account. An agentic pipeline that turns a transaction CSV into a personalized 60-second narrated recap video.</p>
-      <!-- stack -->
+      <!-- services & media (ordered to match bankers-wrapped README) -->
       <p align="center">
-        <img src="https://img.shields.io/badge/Python_3.14-3776AB?style=flat-square&logo=python&logoColor=white" alt="Python 3.14" />
-        <img src="https://img.shields.io/badge/FastAPI_0.115-009688?style=flat-square&logo=fastapi&logoColor=white" alt="FastAPI 0.115" />
-        <img src="https://img.shields.io/badge/Semantic_Kernel_1.x-5C2D91?style=flat-square&logo=microsoft&logoColor=white" alt="Semantic Kernel 1.x" />
-        <img src="https://img.shields.io/badge/Node.js_26.4-339933?style=flat-square&logo=nodedotjs&logoColor=white" alt="Node.js 26.4" />
-        <img src="https://img.shields.io/badge/Next.js_16.2-000000?style=flat-square&logo=nextdotjs&logoColor=white" alt="Next.js 16.2" />
-        <img src="https://img.shields.io/badge/React_19.2-61DAFB?style=flat-square&logo=react&logoColor=black" alt="React 19.2" />
+        <img src="https://img.shields.io/badge/Backblaze_B2-Cloud_Storage-E21C2A?logo=backblaze&logoColor=white" alt="Backblaze B2" />
+        <img src="https://img.shields.io/badge/Genblaze-SDK-7C3AED" alt="Genblaze" />
+        <img src="https://img.shields.io/badge/GMI_Cloud-Seedream-0066CC" alt="GMI Cloud" />
+        <img src="https://img.shields.io/badge/NVIDIA_NIM-LLM-76B900?logo=nvidia&logoColor=white" alt="NVIDIA NIM" />
+        <img src="https://img.shields.io/badge/OpenAI-TTS--1-412991?style=flat-square&logo=openai&logoColor=white" alt="OpenAI" />
+        <img src="https://img.shields.io/badge/FFmpeg-8.1.2-007808?logo=ffmpeg&logoColor=white" alt="FFmpeg" />
+        <img src="https://img.shields.io/badge/Semantic_Kernel-1.x-0078D4?logo=microsoft&logoColor=white" alt="Semantic Kernel" />
+        <img src="https://img.shields.io/badge/Plaid-Sandbox-111111?logo=plaid&logoColor=white" alt="Plaid" />
       </p>
-      <!-- services & media -->
+      <!-- frontend badges (ordered to match bankers-wrapped README) -->
       <p align="center">
-        <img src="https://img.shields.io/badge/NVIDIA_NIM-76B900?style=flat-square&logo=nvidia&logoColor=white" alt="NVIDIA NIM" />
-        <img src="https://img.shields.io/badge/Genblaze_SDK-7C3AED?style=flat-square" alt="Genblaze SDK" />
-        <img src="https://img.shields.io/badge/GMI_Cloud_Seedream-0066CC?style=flat-square" alt="GMI Cloud Seedream" />
-        <img src="https://img.shields.io/badge/FFmpeg_8.1.2-007808?style=flat-square&logo=ffmpeg&logoColor=white" alt="FFmpeg 8.1.2" />
-        <img src="https://img.shields.io/badge/Backblaze_B2-FF0000?style=flat-square&logo=backblaze&logoColor=white" alt="Backblaze B2" />
-        <img src="https://img.shields.io/badge/Railway-0B0D0E?style=flat-square&logo=railway&logoColor=white" alt="Railway" />
-        <img src="https://img.shields.io/badge/Vercel-000000?style=flat-square&logo=vercel&logoColor=white" alt="Vercel" />
+        <img src="https://img.shields.io/badge/React-19.2-61DAFB?logo=react&logoColor=black" alt="React" />
+        <img src="https://img.shields.io/badge/Next.js-16.2.9-000000?logo=nextdotjs&logoColor=white" alt="Next.js" />
+        <img src="https://img.shields.io/badge/Node.js-26.4.0-339933?logo=nodedotjs&logoColor=white" alt="Node.js" />
+        <img src="https://img.shields.io/badge/Vercel-Frontend-000000?logo=vercel&logoColor=white" alt="Vercel" />
+      </p>
+      <!-- backend badges (ordered to match bankers-wrapped README) -->
+      <p align="center">
+        <img src="https://img.shields.io/badge/Python-3.14-3776AB?logo=python&logoColor=white" alt="Python" />
+        <img src="https://img.shields.io/badge/FastAPI-0.115-009688?logo=fastapi&logoColor=white" alt="FastAPI" />
+        <img src="https://img.shields.io/badge/Railway-Backend-0B0D0E?logo=railway&logoColor=white" alt="Railway" />
       </p>
       <!-- demo -->
       <p align="center">

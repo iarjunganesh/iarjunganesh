@@ -39,46 +39,6 @@ My background spans backend engineering, platform modernization, cloud-native ar
 
 <table>
   <tr>
-    <!-- ARGUS — shipped, award winner -->
-    <td width="50%" valign="top">
-      <h3 align="center">🛡️ <a href="https://github.com/iarjunganesh/argus">ARGUS</a></h3>
-      <p align="center"><sub><b>Microsoft Agents League @ AI Skills Fest 2026</b></sub></p>
-      <!-- recognition -->
-      <p align="center">
-        <img src="https://img.shields.io/badge/🏆_Hack_for_Good-Winner_(1_of_3)-FFB000?style=flat-square" alt="Hack for Good Winner" />
-        <img src="https://img.shields.io/badge/Status-Shipped-2EA043?style=flat-square" alt="Shipped" />
-        <img src="https://img.shields.io/badge/Entry-Solo-58A6FF?style=flat-square" alt="Solo entry" />
-      </p>
-      <!-- build & trust -->
-      <p align="center">
-        <a href="https://github.com/iarjunganesh/argus/actions/workflows/python-tests.yml"><img src="https://github.com/iarjunganesh/argus/actions/workflows/python-tests.yml/badge.svg?branch=main" alt="Tests" /></a>
-        <a href="https://codecov.io/gh/iarjunganesh/argus"><img src="https://codecov.io/gh/iarjunganesh/argus/graph/badge.svg" alt="Coverage" /></a>
-        <a href="https://github.com/iarjunganesh/argus/releases/tag/v1.6.0"><img src="https://img.shields.io/badge/release-latest-2ea44f?logo=github&logoColor=white" alt="Release" /></a>
-        <a href="https://github.com/iarjunganesh/argus/blob/main/LICENSE"><img src="https://img.shields.io/badge/License-MIT-yellow.svg?logo=opensourceinitiative&logoColor=white" alt="License: MIT" /></a>
-        <a href="https://youtu.be/yaTNCgCwX4s"><img src="https://img.shields.io/badge/▶_Watch-5--min_demo-FF0000?style=flat-square&logo=youtube&logoColor=white" alt="Demo" /></a>
-      </p>
-      <p align="center">Multi-agent compliance intelligence platform on Azure AI Foundry — KYC, AML, and risk investigation through transparent, evidence-backed, auditable decisions.</p>
-      <!-- services & media (same structure as Banker's Wrapped) -->
-      <p align="center">
-        <img src="https://img.shields.io/badge/Azure_AI_Foundry-0089D0?logo=microsoftazure&logoColor=white" alt="Azure AI Foundry" />
-        <img src="https://img.shields.io/badge/Azure_OpenAI-GPT--4o-412991?logo=microsoftazure&logoColor=white" alt="Azure OpenAI GPT-4o" />
-        <img src="https://img.shields.io/badge/Foundry_IQ-0078D4?logo=microsoft&logoColor=white" alt="Foundry IQ" />
-        <img src="https://img.shields.io/badge/Azure_AI_Search-0089D0?logo=microsoftazure&logoColor=white" alt="Azure AI Search" />
-        <img src="https://img.shields.io/badge/Cosmos_DB-0089D0?logo=microsoftazure&logoColor=white" alt="Cosmos DB" />
-        <img src="https://img.shields.io/badge/Semantic_Kernel-1.x-0078D4?logo=microsoft&logoColor=white" alt="Semantic Kernel" />
-        <img src="https://img.shields.io/badge/A2A-Agent_to_Agent-00C7B7?logo=probot&logoColor=white" alt="A2A" />
-        <img src="https://img.shields.io/badge/RAG-Hybrid_Search-FF6F00?logo=elasticsearch&logoColor=white" alt="RAG" />
-        <img src="https://img.shields.io/badge/MCP-00C7B7?logo=protocolsdotio&logoColor=white" alt="MCP" />
-      </p>
-      <!-- frontend badges (same structure as Banker's Wrapped) -->
-      <p align="center">
-        <img src="https://img.shields.io/badge/Gradio-UI-F97316?logo=gradio&logoColor=white" alt="Gradio" />
-      </p>
-      <!-- backend badges (same structure as Banker's Wrapped) -->
-      <p align="center">
-        <img src="https://img.shields.io/badge/Python-3.11-3776AB?logo=python&logoColor=white" alt="Python 3.11" />
-      </p>
-    </td>
     <!-- Banker's Wrapped — currently building -->
     <td width="50%" valign="top">
       <h3 align="center">🎬 <a href="https://github.com/iarjunganesh/bankers-wrapped">Banker's Wrapped</a></h3>
@@ -127,6 +87,86 @@ My background spans backend engineering, platform modernization, cloud-native ar
         <a href="https://github.com/iarjunganesh/bankers-wrapped/blob/main/notebooks/DEMO_RUNBOOK.ipynb"><img src="https://img.shields.io/badge/Demo-Jupyter_Notebook-F37626?style=flat-square&logo=jupyter&logoColor=white" alt="Jupyter Demo" /></a>
       </p>
     </td>
+    <!-- Continuum — currently building -->
+    <td width="50%" valign="top">
+      <h3 align="center">🧠 <a href="https://github.com/iarjunganesh/continuum">Continuum</a></h3>
+      <p align="center"><sub><b>CockroachDB × AWS Hackathon 2026</b></sub></p>
+      <!-- recognition -->
+      <p align="center">
+        <img src="https://img.shields.io/badge/Status-WIP-FB8C00?style=flat-square" alt="WIP" />
+        <img src="https://img.shields.io/badge/Entry-Solo-58A6FF?style=flat-square" alt="Solo entry" />
+      </p>
+      <!-- build & trust -->
+      <p align="center">
+        <a href="https://github.com/iarjunganesh/continuum/actions/workflows/ci.yml"><img src="https://github.com/iarjunganesh/continuum/actions/workflows/ci.yml/badge.svg?branch=main" alt="CI" /></a>
+        <img src="https://img.shields.io/badge/coverage-%E2%89%A590%25-brightgreen" alt="Coverage" />
+        <a href="https://github.com/iarjunganesh/continuum/releases/tag/v0.6.0"><img src="https://img.shields.io/badge/release-v0.6.0-2ea44f?logo=github&logoColor=white" alt="Release" /></a>
+        <a href="https://github.com/iarjunganesh/continuum/blob/main/LICENSE"><img src="https://img.shields.io/badge/License-MIT-yellow.svg?logo=opensourceinitiative&logoColor=white" alt="License: MIT" /></a>
+      </p>
+      <p align="center">Agentic incident-response memory that survives the agent being killed mid-incident — execution state persists in CockroachDB, not process memory, so a cold-started agent resumes from the exact interrupted step.</p>
+      <!-- services & media -->
+      <p align="center">
+        <img src="https://img.shields.io/badge/CockroachDB-Vector_%2B_Transactional-6933FF?logo=cockroachlabs&logoColor=white" alt="CockroachDB" />
+        <img src="https://img.shields.io/badge/Amazon_Bedrock-Titan_%2B_Claude-232F3E?logo=amazonaws&logoColor=white" alt="Amazon Bedrock" />
+        <img src="https://img.shields.io/badge/AWS_Lambda-Stateless-FF9900?logo=awslambda&logoColor=white" alt="AWS Lambda" />
+        <img src="https://img.shields.io/badge/MCP-CockroachDB_MCP-00C7B7?logo=protocolsdotio&logoColor=white" alt="MCP" />
+      </p>
+      <!-- frontend badges -->
+      <p align="center">
+        <img src="https://img.shields.io/badge/Gradio-Demo_Console-F97316?logo=gradio&logoColor=white" alt="Gradio" />
+      </p>
+      <!-- backend badges -->
+      <p align="center">
+        <img src="https://img.shields.io/badge/Python-3.14-3776AB?logo=python&logoColor=white" alt="Python 3.14" />
+        <img src="https://img.shields.io/badge/FastAPI-0.115-009688?logo=fastapi&logoColor=white" alt="FastAPI" />
+      </p>
+      <!-- demo -->
+      <p align="center">
+        <a href="https://huggingface.co/spaces/iarjunganesh/continuum"><img src="https://img.shields.io/badge/🤗_Live_Demo-Hugging_Face_Space-FFD21E?style=flat-square" alt="Live Demo" /></a>
+      </p>
+    </td>
+  </tr>
+  <tr>
+    <!-- ARGUS — shipped, award winner -->
+    <td width="50%" valign="top">
+      <h3 align="center">🛡️ <a href="https://github.com/iarjunganesh/argus">ARGUS</a></h3>
+      <p align="center"><sub><b>Microsoft Agents League @ AI Skills Fest 2026</b></sub></p>
+      <!-- recognition -->
+      <p align="center">
+        <img src="https://img.shields.io/badge/🏆_Hack_for_Good-Winner_(1_of_3)-FFB000?style=flat-square" alt="Hack for Good Winner" />
+        <img src="https://img.shields.io/badge/Status-Shipped-2EA043?style=flat-square" alt="Shipped" />
+        <img src="https://img.shields.io/badge/Entry-Solo-58A6FF?style=flat-square" alt="Solo entry" />
+      </p>
+      <!-- build & trust -->
+      <p align="center">
+        <a href="https://github.com/iarjunganesh/argus/actions/workflows/python-tests.yml"><img src="https://github.com/iarjunganesh/argus/actions/workflows/python-tests.yml/badge.svg?branch=main" alt="Tests" /></a>
+        <a href="https://codecov.io/gh/iarjunganesh/argus"><img src="https://codecov.io/gh/iarjunganesh/argus/graph/badge.svg" alt="Coverage" /></a>
+        <a href="https://github.com/iarjunganesh/argus/releases/tag/v1.6.0"><img src="https://img.shields.io/badge/release-latest-2ea44f?logo=github&logoColor=white" alt="Release" /></a>
+        <a href="https://github.com/iarjunganesh/argus/blob/main/LICENSE"><img src="https://img.shields.io/badge/License-MIT-yellow.svg?logo=opensourceinitiative&logoColor=white" alt="License: MIT" /></a>
+        <a href="https://youtu.be/yaTNCgCwX4s"><img src="https://img.shields.io/badge/▶_Watch-5--min_demo-FF0000?style=flat-square&logo=youtube&logoColor=white" alt="Demo" /></a>
+      </p>
+      <p align="center">Multi-agent compliance intelligence platform on Azure AI Foundry — KYC, AML, and risk investigation through transparent, evidence-backed, auditable decisions.</p>
+      <!-- services & media (same structure as Banker's Wrapped) -->
+      <p align="center">
+        <img src="https://img.shields.io/badge/Azure_AI_Foundry-0089D0?logo=microsoftazure&logoColor=white" alt="Azure AI Foundry" />
+        <img src="https://img.shields.io/badge/Azure_OpenAI-GPT--4o-412991?logo=microsoftazure&logoColor=white" alt="Azure OpenAI GPT-4o" />
+        <img src="https://img.shields.io/badge/Foundry_IQ-0078D4?logo=microsoft&logoColor=white" alt="Foundry IQ" />
+        <img src="https://img.shields.io/badge/Azure_AI_Search-0089D0?logo=microsoftazure&logoColor=white" alt="Azure AI Search" />
+        <img src="https://img.shields.io/badge/Cosmos_DB-0089D0?logo=microsoftazure&logoColor=white" alt="Cosmos DB" />
+        <img src="https://img.shields.io/badge/Semantic_Kernel-1.x-0078D4?logo=microsoft&logoColor=white" alt="Semantic Kernel" />
+        <img src="https://img.shields.io/badge/A2A-Agent_to_Agent-00C7B7?logo=probot&logoColor=white" alt="A2A" />
+        <img src="https://img.shields.io/badge/RAG-Hybrid_Search-FF6F00?logo=elasticsearch&logoColor=white" alt="RAG" />
+        <img src="https://img.shields.io/badge/MCP-00C7B7?logo=protocolsdotio&logoColor=white" alt="MCP" />
+      </p>
+      <!-- frontend badges (same structure as Banker's Wrapped) -->
+      <p align="center">
+        <img src="https://img.shields.io/badge/Gradio-UI-F97316?logo=gradio&logoColor=white" alt="Gradio" />
+      </p>
+      <!-- backend badges (same structure as Banker's Wrapped) -->
+      <p align="center">
+        <img src="https://img.shields.io/badge/Python-3.11-3776AB?logo=python&logoColor=white" alt="Python 3.11" />
+      </p>
+    </td>
   </tr>
 </table>
 
@@ -137,6 +177,7 @@ My background spans backend engineering, platform modernization, cloud-native ar
 | Project | Description | Stack | Status |
 |---------|-------------|-------|--------|
 | **[Banker's Wrapped](https://github.com/iarjunganesh/bankers-wrapped)** | 🎬 AI-Powered Financial Storytelling — agentic pipeline that turns transaction CSVs into personalized 60s recap videos via NVIDIA NIM, Genblaze, and Backblaze B2 | `Python` `FastAPI` `Semantic Kernel` `NVIDIA NIM` `Genblaze` `Next.js` | 🚧 Hackathon WIP |
+| **[Continuum](https://github.com/iarjunganesh/continuum)** | 🧠 Agentic incident-response memory that survives the agent being killed mid-incident — execution state persists in CockroachDB for cold-start recovery | `Python` `FastAPI` `CockroachDB` `Amazon Bedrock` `AWS Lambda` `MCP` | 🚧 Hackathon WIP |
 | **[ARGUS](https://github.com/iarjunganesh/argus)** | 🛡️ **Agentic Risk & Governance Unified Screening** — Multi-agent compliance intelligence platform with transparent, auditable, evidence-backed decision making | `Azure AI Foundry` `A2A` `RAG` `Semantic Kernel` | 🏆 Hack for Good Winner |
 | **[pythonic-algorithms-lab](https://github.com/iarjunganesh/pythonic-algorithms-lab)** | ⚡ CPU/GPU algorithm implementations (sorting, graphs, DP, data structures) with benchmarking infrastructure & Dash dashboard | `Python` `CUDA` `Dash` `NumPy` | ✅ Active |
 
@@ -222,6 +263,7 @@ Designing resilient systems with **Azure Functions**, **Service Bus**, **OpenTel
 ![A2A](https://img.shields.io/badge/Agent--to--Agent_(A2A)-00C7B7?style=for-the-badge&logo=probot&logoColor=white)
 ![NVIDIA NIM](https://img.shields.io/badge/NVIDIA_NIM-76B900?style=for-the-badge&logo=nvidia&logoColor=white)
 ![Genblaze](https://img.shields.io/badge/Genblaze_SDK-7C3AED?style=for-the-badge)
+![Amazon Bedrock](https://img.shields.io/badge/Amazon_Bedrock-232F3E?style=for-the-badge&logo=amazonaws&logoColor=white)
 
 </details>
 
@@ -231,10 +273,12 @@ Designing resilient systems with **Azure Functions**, **Service Bus**, **OpenTel
 
 ![Azure](https://img.shields.io/badge/Microsoft_Azure-0089D0?style=for-the-badge&logo=microsoftazure&logoColor=white)
 ![AWS](https://img.shields.io/badge/Amazon_AWS-FF9900?style=for-the-badge&logo=amazonaws&logoColor=white)
+![AWS Lambda](https://img.shields.io/badge/AWS_Lambda-FF9900?style=for-the-badge&logo=awslambda&logoColor=white)
 ![OpenShift](https://img.shields.io/badge/OpenShift-EE0000?style=for-the-badge&logo=redhatopenshift&logoColor=white)
 ![Azure Functions](https://img.shields.io/badge/Azure_Functions-0062AD?style=for-the-badge&logo=azurefunctions&logoColor=white)
 ![Service Bus](https://img.shields.io/badge/Azure_Service_Bus-0089D0?style=for-the-badge&logo=microsoftazure&logoColor=white)
 ![Backblaze B2](https://img.shields.io/badge/Backblaze_B2-FF0000?style=for-the-badge&logo=backblaze&logoColor=white)
+![CockroachDB](https://img.shields.io/badge/CockroachDB-6933FF?style=for-the-badge&logo=cockroachlabs&logoColor=white)
 ![Railway](https://img.shields.io/badge/Railway-0B0D0E?style=for-the-badge&logo=railway&logoColor=white)
 ![Vercel](https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white)
 

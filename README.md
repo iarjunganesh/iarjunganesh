@@ -52,7 +52,7 @@ My background spans backend engineering, platform modernization, cloud-native ar
       <p align="center">
         <a href="https://github.com/iarjunganesh/bankers-wrapped/actions/workflows/ci.yml"><img src="https://github.com/iarjunganesh/bankers-wrapped/actions/workflows/ci.yml/badge.svg?branch=main" alt="CI" /></a>
         <a href="https://codecov.io/gh/iarjunganesh/bankers-wrapped"><img src="https://codecov.io/gh/iarjunganesh/bankers-wrapped/graph/badge.svg?token=GSBUXVREL7" alt="Coverage" /></a>
-        <a href="https://github.com/iarjunganesh/bankers-wrapped/releases"><img src="https://img.shields.io/badge/release-latest-2ea44f?logo=github&logoColor=white" alt="Release" /></a>
+        <a href="https://github.com/iarjunganesh/bankers-wrapped/releases/tag/v1.8.0"><img src="https://img.shields.io/badge/release-latest-2ea44f?logo=github&logoColor=white" alt="Release" /></a>
         <a href="https://github.com/iarjunganesh/bankers-wrapped/blob/main/LICENSE"><img src="https://img.shields.io/badge/License-MIT-yellow.svg?logo=opensourceinitiative&logoColor=white" alt="License: MIT" /></a>
         <a href="#"><img src="https://img.shields.io/badge/%E2%96%B6_Watch-3--min_demo-FF0000?logo=youtube&logoColor=white" alt="Watch Video" /></a>
       </p>
@@ -99,9 +99,10 @@ My background spans backend engineering, platform modernization, cloud-native ar
       <!-- build & trust -->
       <p align="center">
         <a href="https://github.com/iarjunganesh/continuum/actions/workflows/ci.yml"><img src="https://github.com/iarjunganesh/continuum/actions/workflows/ci.yml/badge.svg?branch=main" alt="CI" /></a>
-        <img src="https://img.shields.io/badge/coverage-%E2%89%A590%25-brightgreen" alt="Coverage" />
-        <a href="https://github.com/iarjunganesh/continuum/releases/tag/v0.6.0"><img src="https://img.shields.io/badge/release-v0.6.0-2ea44f?logo=github&logoColor=white" alt="Release" /></a>
+        <a href="https://codecov.io/gh/iarjunganesh/continuum"><img src="https://codecov.io/gh/iarjunganesh/continuum/graph/badge.svg" alt="Coverage" /></a>
+        <a href="https://github.com/iarjunganesh/continuum/releases/tag/v0.6.0"><img src="https://img.shields.io/badge/release-latest-2ea44f?logo=github&logoColor=white" alt="Release" /></a>
         <a href="https://github.com/iarjunganesh/continuum/blob/main/LICENSE"><img src="https://img.shields.io/badge/License-MIT-yellow.svg?logo=opensourceinitiative&logoColor=white" alt="License: MIT" /></a>
+        <a href="#"><img src="https://img.shields.io/badge/%E2%96%B6_Watch-3--min_demo-FF0000?logo=youtube&logoColor=white" alt="Watch Video" /></a>
       </p>
       <p align="center">Agentic incident-response memory that survives the agent being killed mid-incident — execution state persists in CockroachDB, not process memory, so a cold-started agent resumes from the exact interrupted step.</p>
       <!-- services & media -->

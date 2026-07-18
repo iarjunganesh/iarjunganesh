@@ -1,5 +1,5 @@
 <h1 align="center">
-  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=28&pause=1000&color=58A6FF&center=true&vCenter=true&width=800&lines=Hi+%F0%9F%91%8B%2C+I'm+Arjun+Ganesh;Senior+Engineer+%7C+Agentic+AI+Systems;13%2B+Years+in+Distributed+Systems;Azure+AI+Foundry+%C2%B7+A2A+%C2%B7+RAG+%C2%B7+MCP;Microsoft+Agents+League+2026+%E2%80%94+Hack+for+Good+Winner" alt="Typing SVG" />
+  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=28&pause=1000&color=58A6FF&center=true&vCenter=true&width=1100&lines=Hi+%F0%9F%91%8B%2C+I'm+Arjun+Ganesh;Senior+Engineer+%7C+Agentic+AI+Systems;13%2B+Years+in+Distributed+Systems;Azure+AI+Foundry+%C2%B7+A2A+%C2%B7+RAG+%C2%B7+MCP;Microsoft+Agents+League+2026+%E2%80%94+Hack+for+Good+Winner" alt="Typing SVG" />
 </h1>
 
 <p align="center">
@@ -39,133 +39,199 @@ My background spans backend engineering, platform modernization, cloud-native ar
 
 <table>
   <tr>
-    <!-- Banker's Wrapped — currently building -->
+    <!-- DRIFT — release intelligence for GPU & AI infra -->
+    <td width="50%" valign="top">
+      <h3 align="center">🔎 <a href="https://github.com/iarjunganesh/drift">DRIFT</a></h3>
+      <p align="center"><sub><b>Release intelligence for GPU & AI infrastructure</b></sub></p>
+      <p align="center">
+        <a href="https://openai.devpost.com/"><img src="https://img.shields.io/badge/Hackathon-OpenAI_Build_Week_·_Devpost-0A0A0A?style=flat-square" alt="Hackathon OpenAI Build Week · Devpost" /></a>
+      </p>
+      <p align="center">
+        <a href="https://devpost.com/software/drift-release-intelligence-for-gpu-ai-infrastructure-teams"><img src="https://img.shields.io/badge/Entry-Solo-58A6FF?style=flat-square" alt="Entry Solo" /></a>
+        <img src="https://img.shields.io/badge/Status-%F0%9F%9A%A7%20Hackathon_WIP-FB8C00?style=flat-square" alt="Status: Hackathon WIP" />
+        <img src="https://img.shields.io/badge/Submission-Pending-9E9E9E?style=flat-square" alt="Submission Pending" />
+      </p>
+      <p align="center">
+        <a href="https://github.com/iarjunganesh/drift/actions/workflows/ci.yml"><img src="https://github.com/iarjunganesh/drift/actions/workflows/ci.yml/badge.svg?branch=main" alt="CI" /></a>
+        <a href="https://codecov.io/gh/iarjunganesh/drift"><img src="https://codecov.io/gh/iarjunganesh/drift/graph/badge.svg" alt="Coverage" /></a>
+        <a href="https://github.com/iarjunganesh/drift/releases"><img src="https://img.shields.io/badge/release-latest-2ea44f?logo=github&logoColor=white" alt="Release" /></a>
+        <a href="https://github.com/iarjunganesh/drift/blob/main/LICENSE"><img src="https://img.shields.io/badge/License-MIT-yellow.svg?logo=opensourceinitiative&logoColor=white" alt="License: MIT" /></a>
+        <img src="https://img.shields.io/badge/%E2%96%B6_Watch-3--min_demo-FF0000?logo=youtube&logoColor=white" alt="Watch Video (placeholder)" />
+      </p>
+      <p align="center">Release intelligence for GPU and AI-infrastructure teams — cited, bounded, and inspectable briefing for engineers.</p>
+      <!-- AI & agent core -->
+      <p align="center">
+        <a href="https://github.com/iarjunganesh/drift/blob/main/backend/agents/base.py"><img src="https://img.shields.io/badge/Agent_Pattern-asyncio_typed_stages-3776AB?logo=python&logoColor=white" alt="Agent Pattern" /></a>
+        <a href="https://developers.openai.com/api/docs/models/gpt-5.6-luna"><img src="https://img.shields.io/badge/GPT--5.6-Luna-412991?logo=openai&logoColor=white" alt="GPT-5.6 Luna" /></a>
+        <a href="https://developers.openai.com/api/docs/models/gpt-5.6-terra"><img src="https://img.shields.io/badge/GPT--5.6-Terra-412991?logo=openai&logoColor=white" alt="GPT-5.6 Terra" /></a>
+        <a href="https://developers.openai.com/api/docs/models/gpt-5.6-sol"><img src="https://img.shields.io/badge/GPT--5.6-Sol-412991?logo=openai&logoColor=white" alt="GPT-5.6 Sol" /></a>
+        <a href="https://docs.pydantic.dev/"><img src="https://img.shields.io/badge/Pydantic-2.13_contracts-E92063?logo=pydantic&logoColor=white" alt="Pydantic" /></a>
+        <a href="https://www.structlog.org/"><img src="https://img.shields.io/badge/structlog-JSON_observability-4A90E2" alt="structlog" /></a>
+      </p>
+      <!-- Frontend + live Vercel app -->
+      <p align="center">
+        <a href="https://nextjs.org/"><img src="https://img.shields.io/badge/Next.js-16.2.10-000000?logo=nextdotjs&logoColor=white" alt="Next.js" /></a>
+        <a href="https://react.dev/"><img src="https://img.shields.io/badge/React-19.2.7-61DAFB?logo=react&logoColor=black" alt="React" /></a>
+        <a href="https://www.typescriptlang.org/"><img src="https://img.shields.io/badge/TypeScript-5.9-3178C6?logo=typescript&logoColor=white" alt="TypeScript" /></a>
+        <a href="https://nodejs.org/"><img src="https://img.shields.io/badge/Node.js-24-339933?logo=nodedotjs&logoColor=white" alt="Node.js" /></a>
+        <a href="https://vercel.com"><img src="https://img.shields.io/badge/Vercel-Hobby-000000?logo=vercel&logoColor=white" alt="Vercel Hobby" /></a>
+      </p>
+      <!-- Backend -->
+      <p align="center">
+        <a href="https://www.python.org/"><img src="https://img.shields.io/badge/Python-3.14-3776AB?logo=python&logoColor=white" alt="Python" /></a>
+        <a href="https://fastapi.tiangolo.com/"><img src="https://img.shields.io/badge/FastAPI-0.139-009688?logo=fastapi&logoColor=white" alt="FastAPI" /></a>
+        <a href="https://docs.astral.sh/ruff/"><img src="https://img.shields.io/badge/Ruff-lint%20%2B%20format-D7FF64?logo=ruff&logoColor=111827" alt="Ruff" /></a>
+        <a href="https://docs.pytest.org/"><img src="https://img.shields.io/badge/pytest-9.1-0A9EDC?logo=pytest&logoColor=white" alt="pytest" /></a>
+        <a href="https://railway.com"><img src="https://img.shields.io/badge/Railway-Hobby-0B0D0E?logo=railway&logoColor=white" alt="Railway Hobby" /></a>
+      </p>
+      <!-- Live store -->
+      <p align="center">
+        <a href="https://www.postgresql.org/"><img src="https://img.shields.io/badge/PostgreSQL-17-336791?logo=postgresql&logoColor=white" alt="PostgreSQL" /></a>
+        <a href="https://github.com/pgvector/pgvector"><img src="https://img.shields.io/badge/pgvector-0.5.0-336791?logo=postgresql&logoColor=white" alt="pgvector" /></a>
+      </p>
+      <!-- Hosting (live deployments) -->
+      <p align="center">
+        <a href="https://dr1ftless.vercel.app"><img src="https://img.shields.io/badge/Vercel-live_frontend-000000?logo=vercel&logoColor=white" alt="Vercel live frontend" /></a>
+        <a href="https://drift-api-prod.up.railway.app/docs"><img src="https://img.shields.io/badge/Railway-live_API-0B0D0E?logo=railway&logoColor=white" alt="Railway live API" /></a>
+      </p>
+    </td>
+    <!-- Banker's Wrapped — currently building (sync badges/order with repo) -->
     <td width="50%" valign="top">
       <h3 align="center">🎬 <a href="https://github.com/iarjunganesh/bankers-wrapped">Banker's Wrapped</a></h3>
-      <p align="center"><sub><b>Backblaze Generative Media Hackathon 2026</b></sub></p>
-      <!-- recognition -->
+      <p align="center"><sub><b>AI-powered financial storytelling</b></sub></p>
       <p align="center">
-        <img src="https://img.shields.io/badge/Status-WIP-FB8C00?style=flat-square" alt="WIP" />
-        <img src="https://img.shields.io/badge/Entry-Solo-58A6FF?style=flat-square" alt="Solo entry" />
+        <a href="https://backblaze-generative-media.devpost.com/"><img src="https://img.shields.io/badge/Hackathon-Backblaze_Generative_Media_·_Devpost-0A0A0A?style=flat-square" alt="Hackathon Backblaze Generative Media · Devpost" /></a>
       </p>
-      <!-- build & trust -->
+      <p align="center">
+        <a href="https://devpost.com/software/banker-s-wrapped"><img src="https://img.shields.io/badge/Entry-Solo-58A6FF?style=flat-square" alt="Entry Solo" /></a>
+        <img src="https://img.shields.io/badge/Status-%F0%9F%9A%A7%20Hackathon_WIP-FB8C00?style=flat-square" alt="Status: Hackathon WIP" />
+        <img src="https://img.shields.io/badge/Submission-Pending-9E9E9E?style=flat-square" alt="Submission Pending" />
+      </p>
       <p align="center">
         <a href="https://github.com/iarjunganesh/bankers-wrapped/actions/workflows/ci.yml"><img src="https://github.com/iarjunganesh/bankers-wrapped/actions/workflows/ci.yml/badge.svg?branch=main" alt="CI" /></a>
         <a href="https://codecov.io/gh/iarjunganesh/bankers-wrapped"><img src="https://codecov.io/gh/iarjunganesh/bankers-wrapped/graph/badge.svg?token=GSBUXVREL7" alt="Coverage" /></a>
-        <a href="https://github.com/iarjunganesh/bankers-wrapped/releases/tag/v1.8.0"><img src="https://img.shields.io/badge/release-latest-2ea44f?logo=github&logoColor=white" alt="Release" /></a>
+        <a href="https://github.com/iarjunganesh/bankers-wrapped/releases"><img src="https://img.shields.io/badge/release-latest-2ea44f?logo=github&logoColor=white" alt="Release" /></a>
         <a href="https://github.com/iarjunganesh/bankers-wrapped/blob/main/LICENSE"><img src="https://img.shields.io/badge/License-MIT-yellow.svg?logo=opensourceinitiative&logoColor=white" alt="License: MIT" /></a>
-        <a href="#"><img src="https://img.shields.io/badge/%E2%96%B6_Watch-3--min_demo-FF0000?logo=youtube&logoColor=white" alt="Watch Video" /></a>
+        <img src="https://img.shields.io/badge/%E2%96%B6_Watch-3--min_demo-FF0000?logo=youtube&logoColor=white" alt="Watch Video (placeholder)" />
       </p>
       <p align="center">Spotify Wrapped — but for your bank account. An agentic pipeline that turns a transaction CSV into a personalized 60-second narrated recap video.</p>
-      <!-- services & media (ordered to match bankers-wrapped README) -->
+      <!-- Generative media & AI -->
       <p align="center">
-        <img src="https://img.shields.io/badge/Backblaze_B2-Cloud_Storage-E21C2A?logo=backblaze&logoColor=white" alt="Backblaze B2" />
-        <img src="https://img.shields.io/badge/Genblaze-SDK-7C3AED" alt="Genblaze" />
-        <img src="https://img.shields.io/badge/GMI_Cloud-Seedream-0066CC" alt="GMI Cloud" />
-        <img src="https://img.shields.io/badge/NVIDIA_NIM-LLM-76B900?logo=nvidia&logoColor=white" alt="NVIDIA NIM" />
-        <img src="https://img.shields.io/badge/OpenAI-TTS--1-412991?style=flat-square&logo=openai&logoColor=white" alt="OpenAI" />
-        <img src="https://img.shields.io/badge/FFmpeg-8.1.2-007808?logo=ffmpeg&logoColor=white" alt="FFmpeg" />
-        <img src="https://img.shields.io/badge/Semantic_Kernel-1.x-0078D4?logo=microsoft&logoColor=white" alt="Semantic Kernel" />
-        <img src="https://img.shields.io/badge/Plaid-Sandbox-111111?logo=plaid&logoColor=white" alt="Plaid" />
+        <a href="https://www.backblaze.com/cloud-storage"><img src="https://img.shields.io/badge/Backblaze_B2-Cloud_Storage-E21C2A?logo=backblaze&logoColor=white" alt="Backblaze B2" /></a>
+        <a href="https://github.com/backblaze-labs/genblaze"><img src="https://img.shields.io/badge/Genblaze-SDK-7C3AED" alt="Genblaze" /></a>
+        <a href="https://cloud.gmi.ai/"><img src="https://img.shields.io/badge/GMI_Cloud-Seedream-0066CC" alt="GMI Cloud" /></a>
+        <a href="https://build.nvidia.com/"><img src="https://img.shields.io/badge/NVIDIA_NIM-LLM-76B900?logo=nvidia&logoColor=white" alt="NVIDIA NIM" /></a>
+        <a href="https://platform.openai.com/"><img src="https://img.shields.io/badge/OpenAI-TTS--1-412991?style=flat-square&logo=openai&logoColor=white" alt="OpenAI" /></a>
+        <a href="https://ffmpeg.org/"><img src="https://img.shields.io/badge/FFmpeg-8.1.2-007808?logo=ffmpeg&logoColor=white" alt="FFmpeg" /></a>
+        <a href="https://pydantic.dev/"><img src="https://img.shields.io/badge/Pydantic-typed_models-E92063?logo=pydantic&logoColor=white" alt="Pydantic" /></a>
+        <a href="https://plaid.com/"><img src="https://img.shields.io/badge/Plaid-Sandbox-111111?logo=plaid&logoColor=white" alt="Plaid" /></a>
       </p>
-      <!-- frontend badges (ordered to match bankers-wrapped README) -->
+      <!-- Frontend -->
       <p align="center">
-        <img src="https://img.shields.io/badge/React-19.2-61DAFB?logo=react&logoColor=black" alt="React" />
-        <img src="https://img.shields.io/badge/Next.js-16.2.9-000000?logo=nextdotjs&logoColor=white" alt="Next.js" />
-        <img src="https://img.shields.io/badge/Node.js-26.4.0-339933?logo=nodedotjs&logoColor=white" alt="Node.js" />
-        <img src="https://img.shields.io/badge/Vercel-Frontend-000000?logo=vercel&logoColor=white" alt="Vercel" />
+        <a href="https://nextjs.org/"><img src="https://img.shields.io/badge/Next.js-16.2.9-000000?logo=nextdotjs&logoColor=white" alt="Next.js" /></a>
+        <a href="https://react.dev/"><img src="https://img.shields.io/badge/React-19.2-61DAFB?logo=react&logoColor=black" alt="React" /></a>
+        <a href="https://www.typescriptlang.org/"><img src="https://img.shields.io/badge/TypeScript-5.9-3178C6?logo=typescript&logoColor=white" alt="TypeScript" /></a>
+        <a href="https://nodejs.org/"><img src="https://img.shields.io/badge/Node.js-26.4.0-339933?logo=nodedotjs&logoColor=white" alt="Node.js" /></a>
+        <a href="https://vercel.com"><img src="https://img.shields.io/badge/Vercel-Hobby-000000?logo=vercel&logoColor=white" alt="Vercel Hobby" /></a>
       </p>
-      <!-- backend badges (ordered to match bankers-wrapped README) -->
+      <!-- Backend -->
       <p align="center">
-        <img src="https://img.shields.io/badge/Python-3.14-3776AB?logo=python&logoColor=white" alt="Python" />
-        <img src="https://img.shields.io/badge/FastAPI-0.115-009688?logo=fastapi&logoColor=white" alt="FastAPI" />
-        <img src="https://img.shields.io/badge/Railway-Backend-0B0D0E?logo=railway&logoColor=white" alt="Railway" />
+        <a href="https://www.python.org/"><img src="https://img.shields.io/badge/Python-3.14-3776AB?logo=python&logoColor=white" alt="Python" /></a>
+        <a href="https://fastapi.tiangolo.com/"><img src="https://img.shields.io/badge/FastAPI-0.139-009688?logo=fastapi&logoColor=white" alt="FastAPI" /></a>
+        <a href="https://docs.astral.sh/ruff/"><img src="https://img.shields.io/badge/Ruff-lint%20%2B%20format-D7FF64?logo=ruff&logoColor=111827" alt="Ruff" /></a>
+        <a href="https://docs.pytest.org/"><img src="https://img.shields.io/badge/pytest-9.1-0A9EDC?logo=pytest&logoColor=white" alt="pytest" /></a>
+        <a href="https://railway.app"><img src="https://img.shields.io/badge/Railway-Hobby-0B0D0E?logo=railway&logoColor=white" alt="Railway Hobby" /></a>
       </p>
-      <!-- demo -->
+      <!-- Hosting / demo -->
       <p align="center">
-        <a href="https://bankers-wrapped.vercel.app"><img src="https://img.shields.io/badge/🌐_Live_Demo-bankers--wrapped.vercel.app-000000?style=flat-square&logo=vercel&logoColor=white" alt="Live Demo" /></a>
-        <a href="https://github.com/iarjunganesh/bankers-wrapped/blob/main/notebooks/DEMO_RUNBOOK.ipynb"><img src="https://img.shields.io/badge/Demo-Jupyter_Notebook-F37626?style=flat-square&logo=jupyter&logoColor=white" alt="Jupyter Demo" /></a>
-      </p>
-    </td>
-    <!-- Continuum — currently building -->
-    <td width="50%" valign="top">
-      <h3 align="center">🧠 <a href="https://github.com/iarjunganesh/continuum">Continuum</a></h3>
-      <p align="center"><sub><b>CockroachDB × AWS Hackathon 2026</b></sub></p>
-      <!-- recognition -->
-      <p align="center">
-        <img src="https://img.shields.io/badge/Status-WIP-FB8C00?style=flat-square" alt="WIP" />
-        <img src="https://img.shields.io/badge/Entry-Solo-58A6FF?style=flat-square" alt="Solo entry" />
-      </p>
-      <!-- build & trust -->
-      <p align="center">
-        <a href="https://github.com/iarjunganesh/continuum/actions/workflows/ci.yml"><img src="https://github.com/iarjunganesh/continuum/actions/workflows/ci.yml/badge.svg?branch=main" alt="CI" /></a>
-        <a href="https://codecov.io/gh/iarjunganesh/continuum"><img src="https://codecov.io/gh/iarjunganesh/continuum/graph/badge.svg" alt="Coverage" /></a>
-        <a href="https://github.com/iarjunganesh/continuum/releases/tag/v0.6.0"><img src="https://img.shields.io/badge/release-latest-2ea44f?logo=github&logoColor=white" alt="Release" /></a>
-        <a href="https://github.com/iarjunganesh/continuum/blob/main/LICENSE"><img src="https://img.shields.io/badge/License-MIT-yellow.svg?logo=opensourceinitiative&logoColor=white" alt="License: MIT" /></a>
-        <a href="#"><img src="https://img.shields.io/badge/%E2%96%B6_Watch-3--min_demo-FF0000?logo=youtube&logoColor=white" alt="Watch Video" /></a>
-      </p>
-      <p align="center">Agentic incident-response memory that survives the agent being killed mid-incident — execution state persists in CockroachDB, not process memory, so a cold-started agent resumes from the exact interrupted step.</p>
-      <!-- services & media -->
-      <p align="center">
-        <img src="https://img.shields.io/badge/CockroachDB-Vector_%2B_Transactional-6933FF?logo=cockroachlabs&logoColor=white" alt="CockroachDB" />
-        <img src="https://img.shields.io/badge/Amazon_Bedrock-Titan_%2B_Claude-232F3E?logo=amazonaws&logoColor=white" alt="Amazon Bedrock" />
-        <img src="https://img.shields.io/badge/AWS_Lambda-Stateless-FF9900?logo=awslambda&logoColor=white" alt="AWS Lambda" />
-        <img src="https://img.shields.io/badge/MCP-CockroachDB_MCP-00C7B7?logo=protocolsdotio&logoColor=white" alt="MCP" />
-      </p>
-      <!-- frontend badges -->
-      <p align="center">
-        <img src="https://img.shields.io/badge/Gradio-Demo_Console-F97316?logo=gradio&logoColor=white" alt="Gradio" />
-      </p>
-      <!-- backend badges -->
-      <p align="center">
-        <img src="https://img.shields.io/badge/Python-3.14-3776AB?logo=python&logoColor=white" alt="Python 3.14" />
-        <img src="https://img.shields.io/badge/FastAPI-0.115-009688?logo=fastapi&logoColor=white" alt="FastAPI" />
-      </p>
-      <!-- demo -->
-      <p align="center">
-        <a href="https://huggingface.co/spaces/iarjunganesh/continuum"><img src="https://img.shields.io/badge/🤗_Live_Demo-Hugging_Face_Space-FFD21E?style=flat-square" alt="Live Demo" /></a>
+        <a href="https://bankers-wrapped.vercel.app"><img src="https://img.shields.io/badge/Vercel-live_frontend-000000?logo=vercel&logoColor=white" alt="Vercel live frontend" /></a>
+        <a href="https://railway.app"><img src="https://img.shields.io/badge/Railway-live_API-0B0D0E?logo=railway&logoColor=white" alt="Railway live API" /></a>
       </p>
     </td>
   </tr>
   <tr>
+    <!-- Continuum — currently building -->
+    <td width="50%" valign="top">
+      <h3 align="center">🧠 <a href="https://github.com/iarjunganesh/continuum">Continuum</a></h3>
+      <p align="center"><sub><b>Durable incident memory for cold-started agents</b></sub></p>
+      <p align="center">
+        <a href="https://cockroachdb-ai.devpost.com/"><img src="https://img.shields.io/badge/Hackathon-CockroachDB_AI_·_Devpost-0A0A0A?style=flat-square" alt="Hackathon CockroachDB AI · Devpost" /></a>
+      </p>
+      <p align="center">
+        <a href="https://devpost.com/software/continuum-w4c3mr"><img src="https://img.shields.io/badge/Entry-Solo-58A6FF?style=flat-square" alt="Entry Solo" /></a>
+        <img src="https://img.shields.io/badge/Status-%F0%9F%9A%A7%20Hackathon_WIP-FB8C00?style=flat-square" alt="Status: Hackathon WIP" />
+        <img src="https://img.shields.io/badge/Submission-Pending-9E9E9E?style=flat-square" alt="Submission Pending" />
+      </p>
+      <p align="center">
+        <a href="https://github.com/iarjunganesh/continuum/actions/workflows/ci.yml"><img src="https://github.com/iarjunganesh/continuum/actions/workflows/ci.yml/badge.svg?branch=main" alt="CI" /></a>
+        <a href="https://codecov.io/gh/iarjunganesh/continuum"><img src="https://codecov.io/gh/iarjunganesh/continuum/graph/badge.svg" alt="Coverage" /></a>
+        <a href="https://github.com/iarjunganesh/continuum/releases"><img src="https://img.shields.io/badge/release-latest-2ea44f?logo=github&logoColor=white" alt="Release" /></a>
+        <a href="https://github.com/iarjunganesh/continuum/blob/main/LICENSE"><img src="https://img.shields.io/badge/License-MIT-yellow.svg?logo=opensourceinitiative&logoColor=white" alt="License: MIT" /></a>
+        <img src="https://img.shields.io/badge/%E2%96%B6_Watch-3--min_demo-FF0000?logo=youtube&logoColor=white" alt="Watch Video (placeholder)" />
+      </p>
+      <p align="center">Agentic incident-response memory that survives the agent being killed mid-incident — execution state persists in CockroachDB, not process memory, so a cold-started agent resumes from the exact interrupted step.</p>
+      <!-- Data & agentic memory -->
+      <p align="center">
+        <a href="https://www.cockroachlabs.com/"><img src="https://img.shields.io/badge/CockroachDB-6933FF?logo=cockroachlabs&logoColor=white" alt="CockroachDB" /></a>
+        <a href="https://protocols.io/"><img src="https://img.shields.io/badge/CockroachDB_MCP-00C7B7?logo=protocolsdotio&logoColor=white" alt="CockroachDB MCP" /></a>
+      </p>
+      <p align="center">
+        <a href="https://aws.amazon.com/bedrock/"><img src="https://img.shields.io/badge/Amazon_Bedrock-232F3E?logo=amazonaws&logoColor=white" alt="Amazon Bedrock" /></a>
+        <a href="https://aws.amazon.com/lambda/"><img src="https://img.shields.io/badge/AWS_Lambda-FF9900?logo=awslambda&logoColor=white" alt="AWS Lambda" /></a>
+      </p>
+      <p align="center">
+        <a href="https://www.python.org/"><img src="https://img.shields.io/badge/Python-3.14-3776AB?logo=python&logoColor=white" alt="Python" /></a>
+        <a href="https://fastapi.tiangolo.com/"><img src="https://img.shields.io/badge/FastAPI-0.115-009688?logo=fastapi&logoColor=white" alt="FastAPI" /></a>
+        <a href="https://docs.astral.sh/ruff/"><img src="https://img.shields.io/badge/Ruff-lint%20%2B%20format-D7FF64?logo=ruff&logoColor=111827" alt="Ruff" /></a>
+        <a href="https://docs.pytest.org/"><img src="https://img.shields.io/badge/pytest-9.1-0A9EDC?logo=pytest&logoColor=white" alt="pytest" /></a>
+        <a href="https://gradio.app/"><img src="https://img.shields.io/badge/Gradio-F97316?logo=gradio&logoColor=white" alt="Gradio" /></a>
+      </p>
+      <p align="center">
+        <a href="https://huggingface.co/spaces/iarjunganesh/continuum"><img src="https://img.shields.io/badge/%F0%9F%A4%97_HuggingFace_Space-live_backend-FFD21E?style=flat-square" alt="HuggingFace Space live backend" /></a>
+      </p>
+    </td>
     <!-- ARGUS — shipped, award winner -->
     <td width="50%" valign="top">
       <h3 align="center">🛡️ <a href="https://github.com/iarjunganesh/argus">ARGUS</a></h3>
-      <p align="center"><sub><b>Microsoft Agents League @ AI Skills Fest 2026</b></sub></p>
-      <!-- recognition -->
       <p align="center">
-        <img src="https://img.shields.io/badge/🏆_Hack_for_Good-Winner_(1_of_3)-FFB000?style=flat-square" alt="Hack for Good Winner" />
-        <img src="https://img.shields.io/badge/Status-Shipped-2EA043?style=flat-square" alt="Shipped" />
-        <img src="https://img.shields.io/badge/Entry-Solo-58A6FF?style=flat-square" alt="Solo entry" />
+        <a href="https://info.microsoft.com/Agents-League-Hackathon-Registration.html"><img src="https://img.shields.io/badge/Hackathon-Agents_League_Hackathon-0057B8?style=flat-square" alt="Agents League Hackathon" /></a>
+        <a href="https://github.com/microsoft/Agents-League-AISF-Regulations"><img src="https://img.shields.io/badge/Agents_League_Hackathon-AISF_Regulations-0057B8?style=flat-square" alt="AISF Regulations" /></a>
       </p>
-      <!-- build & trust -->
+      <p align="center">
+        <a href="https://innovationstudio.microsoft.com/hackathons/Agents-League-Hackathon/project/123412"><img src="https://img.shields.io/badge/Entry-Solo-58A6FF?style=flat-square" alt="Solo entry" /></a>
+        <img src="https://img.shields.io/badge/Status-Shipped-2EA043?style=flat-square" alt="Shipped" />
+        <a href="https://innovationstudio.microsoft.com/hackathons/Agents-League-Hackathon/project/123412"><img src="https://img.shields.io/badge/Submission-Completed-2EA043?style=flat-square" alt="Submission Completed" /></a>
+      </p>
+      <p align="center">
+        <a href="https://github.com/microsoft/Agents-League-AISF-Regulations/blob/main/OFFICIAL%20RULES.md"><img src="https://img.shields.io/badge/Winner-Hack_For_Good_(1_of_3)-FFB000?style=flat-square" alt="Winner Hack For Good (1 of 3)" /></a>
+      </p>
       <p align="center">
         <a href="https://github.com/iarjunganesh/argus/actions/workflows/python-tests.yml"><img src="https://github.com/iarjunganesh/argus/actions/workflows/python-tests.yml/badge.svg?branch=main" alt="Tests" /></a>
         <a href="https://codecov.io/gh/iarjunganesh/argus"><img src="https://codecov.io/gh/iarjunganesh/argus/graph/badge.svg" alt="Coverage" /></a>
-        <a href="https://github.com/iarjunganesh/argus/releases/tag/v1.6.0"><img src="https://img.shields.io/badge/release-latest-2ea44f?logo=github&logoColor=white" alt="Release" /></a>
+        <a href="https://github.com/iarjunganesh/argus/tags"><img src="https://img.shields.io/badge/release-latest-2ea44f?logo=github&logoColor=white" alt="Release" /></a>
         <a href="https://github.com/iarjunganesh/argus/blob/main/LICENSE"><img src="https://img.shields.io/badge/License-MIT-yellow.svg?logo=opensourceinitiative&logoColor=white" alt="License: MIT" /></a>
         <a href="https://youtu.be/yaTNCgCwX4s"><img src="https://img.shields.io/badge/▶_Watch-5--min_demo-FF0000?style=flat-square&logo=youtube&logoColor=white" alt="Demo" /></a>
       </p>
       <p align="center">Multi-agent compliance intelligence platform on Azure AI Foundry — KYC, AML, and risk investigation through transparent, evidence-backed, auditable decisions.</p>
-      <!-- services & media (same structure as Banker's Wrapped) -->
+      <!-- Orchestration & intelligence -->
       <p align="center">
-        <img src="https://img.shields.io/badge/Azure_AI_Foundry-0089D0?logo=microsoftazure&logoColor=white" alt="Azure AI Foundry" />
-        <img src="https://img.shields.io/badge/Azure_OpenAI-GPT--4o-412991?logo=microsoftazure&logoColor=white" alt="Azure OpenAI GPT-4o" />
-        <img src="https://img.shields.io/badge/Foundry_IQ-0078D4?logo=microsoft&logoColor=white" alt="Foundry IQ" />
-        <img src="https://img.shields.io/badge/Azure_AI_Search-0089D0?logo=microsoftazure&logoColor=white" alt="Azure AI Search" />
-        <img src="https://img.shields.io/badge/Cosmos_DB-0089D0?logo=microsoftazure&logoColor=white" alt="Cosmos DB" />
-        <img src="https://img.shields.io/badge/Semantic_Kernel-1.x-0078D4?logo=microsoft&logoColor=white" alt="Semantic Kernel" />
-        <img src="https://img.shields.io/badge/A2A-Agent_to_Agent-00C7B7?logo=probot&logoColor=white" alt="A2A" />
-        <img src="https://img.shields.io/badge/RAG-Hybrid_Search-FF6F00?logo=elasticsearch&logoColor=white" alt="RAG" />
-        <img src="https://img.shields.io/badge/MCP-00C7B7?logo=protocolsdotio&logoColor=white" alt="MCP" />
+        <a href="https://azure.microsoft.com/"><img src="https://img.shields.io/badge/Azure_AI_Foundry-0089D0?logo=microsoftazure&logoColor=white" alt="Azure AI Foundry" /></a>
+        <a href="https://azure.microsoft.com/en-us/services/cognitive-services/openai-service/"><img src="https://img.shields.io/badge/Azure_OpenAI-GPT--4o-412991?logo=microsoftazure&logoColor=white" alt="Azure OpenAI GPT-4o" /></a>
+        <a href="https://learn.microsoft.com/en-us/azure/ai-services/foundry/"><img src="https://img.shields.io/badge/Foundry_IQ-0078D4?logo=microsoft&logoColor=white" alt="Foundry IQ" /></a>
+        <a href="https://docs.astral.sh/semantic_kernel/"><img src="https://img.shields.io/badge/Semantic_Kernel-1.x-0078D4?logo=microsoft&logoColor=white" alt="Semantic Kernel" /></a>
+        <a href="https://probot.github.io/"><img src="https://img.shields.io/badge/A2A-Agent_to_Agent-00C7B7?logo=probot&logoColor=white" alt="A2A" /></a>
       </p>
-      <!-- frontend badges (same structure as Banker's Wrapped) -->
+      <!-- Retrieval, data & UI -->
       <p align="center">
-        <img src="https://img.shields.io/badge/Gradio-UI-F97316?logo=gradio&logoColor=white" alt="Gradio" />
+        <a href="https://learn.microsoft.com/en-us/azure/search/"><img src="https://img.shields.io/badge/Azure_AI_Search-0089D0?logo=microsoftazure&logoColor=white" alt="Azure AI Search" /></a>
+        <a href="https://azure.microsoft.com/en-us/services/cosmos-db/"><img src="https://img.shields.io/badge/Cosmos_DB-0089D0?logo=microsoftazure&logoColor=white" alt="Cosmos DB" /></a>
+        <a href="https://www.elastic.co/what-is/elasticsearch"><img src="https://img.shields.io/badge/RAG-Hybrid_Search-FF6F00?logo=elasticsearch&logoColor=white" alt="RAG" /></a>
+        <a href="https://protocols.io/"><img src="https://img.shields.io/badge/MCP-00C7B7?logo=protocolsdotio&logoColor=white" alt="MCP" /></a>
+        <a href="https://gradio.app/"><img src="https://img.shields.io/badge/Gradio-UI-F97316?logo=gradio&logoColor=white" alt="Gradio" /></a>
       </p>
-      <!-- backend badges (same structure as Banker's Wrapped) -->
+      <!-- Language -->
       <p align="center">
-        <img src="https://img.shields.io/badge/Python-3.11-3776AB?logo=python&logoColor=white" alt="Python 3.11" />
+        <a href="https://www.python.org/"><img src="https://img.shields.io/badge/Python-3.11-3776AB?logo=python&logoColor=white" alt="Python 3.11" /></a>
       </p>
     </td>
   </tr>
@@ -175,12 +241,13 @@ My background spans backend engineering, platform modernization, cloud-native ar
 
 ## 📂 All Projects
 
-| Project | Description | Stack | Status |
-|---------|-------------|-------|--------|
-| **[Banker's Wrapped](https://github.com/iarjunganesh/bankers-wrapped)** | 🎬 AI-Powered Financial Storytelling — agentic pipeline that turns transaction CSVs into personalized 60s recap videos via NVIDIA NIM, Genblaze, and Backblaze B2 | `Python` `FastAPI` `Semantic Kernel` `NVIDIA NIM` `Genblaze` `Next.js` | 🚧 Hackathon WIP |
-| **[Continuum](https://github.com/iarjunganesh/continuum)** | 🧠 Agentic incident-response memory that survives the agent being killed mid-incident — execution state persists in CockroachDB for cold-start recovery | `Python` `FastAPI` `CockroachDB` `Amazon Bedrock` `AWS Lambda` `MCP` | 🚧 Hackathon WIP |
-| **[ARGUS](https://github.com/iarjunganesh/argus)** | 🛡️ **Agentic Risk & Governance Unified Screening** — Multi-agent compliance intelligence platform with transparent, auditable, evidence-backed decision making | `Azure AI Foundry` `A2A` `RAG` `Semantic Kernel` | 🏆 Hack for Good Winner |
-| **[pythonic-algorithms-lab](https://github.com/iarjunganesh/pythonic-algorithms-lab)** | ⚡ CPU/GPU algorithm implementations (sorting, graphs, DP, data structures) with benchmarking infrastructure & Dash dashboard | `Python` `CUDA` `Dash` `NumPy` | ✅ Active |
+| Project | Description | Status |
+|---------|-------------|--------|
+| **[DRIFT](https://github.com/iarjunganesh/drift)** | 🔎 Release intelligence for GPU & AI infrastructure — cited, bounded, inspectable briefing for engineers | 🚧 Hackathon WIP |
+| **[Banker's Wrapped](https://github.com/iarjunganesh/bankers-wrapped)** | 🎬 AI-Powered Financial Storytelling — agentic pipeline that turns transaction CSVs into personalized 60s recap videos via Genblaze and Backblaze B2 | 🚧 Hackathon WIP |
+| **[Continuum](https://github.com/iarjunganesh/continuum)** | 🧠 Agentic incident-response memory that survives the agent being killed mid-incident — execution state persists in CockroachDB for cold-start recovery | 🚧 Hackathon WIP |
+| **[ARGUS](https://github.com/iarjunganesh/argus)** | 🛡️ **Agentic Risk & Governance Unified Screening** — Multi-agent compliance intelligence platform with transparent, auditable, evidence-backed decision making | 🏆 Hack for Good Winner |
+| **[pythonic-algorithms-lab](https://github.com/iarjunganesh/pythonic-algorithms-lab)** | ⚡ CPU/GPU algorithm implementations (sorting, graphs, DP, data structures) with benchmarking infrastructure & Dash dashboard | ✅ Active |
 
 ---
 
@@ -250,7 +317,10 @@ Designing resilient systems with **Azure Functions**, **Service Bus**, **OpenTel
 ![Spring Boot](https://img.shields.io/badge/Spring_Boot-6DB33F?style=for-the-badge&logo=springboot&logoColor=white)
 ![Quarkus](https://img.shields.io/badge/Quarkus-4695EB?style=for-the-badge&logo=quarkus&logoColor=white)
 ![FastAPI](https://img.shields.io/badge/FastAPI-009688?style=for-the-badge&logo=fastapi&logoColor=white)
+![React](https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=react&logoColor=black)
+![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)
 ![Next.js](https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white)
+![Gradio](https://img.shields.io/badge/Gradio-F97316?style=for-the-badge&logo=gradio&logoColor=white)
 
 </details>
 
@@ -262,6 +332,7 @@ Designing resilient systems with **Azure Functions**, **Service Bus**, **OpenTel
 ![Semantic Kernel](https://img.shields.io/badge/Semantic_Kernel-5C2D91?style=for-the-badge&logo=microsoft&logoColor=white)
 ![RAG](https://img.shields.io/badge/RAG_Hybrid_Search-FF6F00?style=for-the-badge&logo=elasticsearch&logoColor=white)
 ![A2A](https://img.shields.io/badge/Agent--to--Agent_(A2A)-00C7B7?style=for-the-badge&logo=probot&logoColor=white)
+![MCP](https://img.shields.io/badge/MCP-00C7B7?style=for-the-badge&logo=protocolsdotio&logoColor=white)
 ![NVIDIA NIM](https://img.shields.io/badge/NVIDIA_NIM-76B900?style=for-the-badge&logo=nvidia&logoColor=white)
 ![Genblaze](https://img.shields.io/badge/Genblaze_SDK-7C3AED?style=for-the-badge)
 ![Amazon Bedrock](https://img.shields.io/badge/Amazon_Bedrock-232F3E?style=for-the-badge&logo=amazonaws&logoColor=white)
@@ -293,6 +364,8 @@ Designing resilient systems with **Azure Functions**, **Service Bus**, **OpenTel
 ![Application Insights](https://img.shields.io/badge/Application_Insights-0078D4?style=for-the-badge&logo=microsoftazure&logoColor=white)
 ![KQL](https://img.shields.io/badge/KQL-0078D4?style=for-the-badge&logo=microsoftazure&logoColor=white)
 ![NVIDIA CUDA](https://img.shields.io/badge/NVIDIA_CUDA-76B900?style=for-the-badge&logo=nvidia&logoColor=white)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-336791?style=for-the-badge&logo=postgresql&logoColor=white)
+![pgvector](https://img.shields.io/badge/pgvector-336791?style=for-the-badge&logo=postgresql&logoColor=white)
 ![Vector Search](https://img.shields.io/badge/Vector_Search-FF6F00?style=for-the-badge&logo=apachekafka&logoColor=white)
 ![NoSQL](https://img.shields.io/badge/NoSQL_Databases-4DB33D?style=for-the-badge&logo=mongodb&logoColor=white)
 ![Event Driven](https://img.shields.io/badge/Event--Driven_Systems-231F20?style=for-the-badge&logo=apachekafka&logoColor=white)

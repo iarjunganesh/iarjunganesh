@@ -25,11 +25,15 @@ I care about AI that explains its reasoning, leaves an audit trail, and actually
 **Multi-agent compliance intelligence on Azure AI Foundry**
 
 [Microsoft Agents League — AI Skills Fest 2026 · Reasoning Agents track ↗](https://info.microsoft.com/Agents-League-Hackathon-Registration.html)
-![🏆 Winner · Hack for Good (1 of 3)](https://img.shields.io/badge/🏆_Winner_·_Hack_for_Good_(1_of_3)-FFB000?style=flat-square)
+[![🏆 Winner · Hack for Good (1 of 3)](https://img.shields.io/badge/🏆_Winner_·_Hack_for_Good_(1_of_3)-FFB000?style=flat-square)](https://techcommunity.microsoft.com/blog/educatordeveloperblog/%F0%9F%8F%86-agents-league-celebrating-the-builders-who-made-agents-battle-for-glory/4538007)
 
-Five specialist AI agents, coordinated over the A2A protocol on Azure AI Foundry, run KYC, AML, and risk screening — every finding grounded in cited regulation via Foundry IQ, every decision backed by a full audit trail. Built solo; one of three Hack for Good winners.
+problem> Manual KYC/AML review doesn't scale, and unaudited AI decisions don't survive a regulator's questions.
+
+approach> Five specialist AI agents, coordinated over the A2A protocol on Azure AI Foundry, run KYC, AML, and risk screening — every finding grounded in cited regulation via Foundry IQ, every decision backed by a full audit trail. Built solo; one of three Hack for Good winners.
 
 Studied Foundry IQ before building ARGUS, then competed in the Agents League Reasoning Agents track — and won Hack for Good (1 of 3).
+
+[Foundry IQ Learned before building ↗](https://globalai.community/badges/b35714f6-9372-4716-985f-ad2058722e76) · [Reasoning Agents Track participant ↗](https://globalai.community/badges/8261feac-a6a6-4ee9-bc77-4ebecbbf2ce8)
 
 ![Azure AI Foundry](https://img.shields.io/badge/Azure_AI_Foundry-0089D0?style=flat-square&logo=microsoftazure&logoColor=white)
 ![Azure OpenAI GPT-4o](https://img.shields.io/badge/Azure_OpenAI_GPT--4o-0089D0?style=flat-square&logo=microsoftazure&logoColor=white)
@@ -43,7 +47,7 @@ Studied Foundry IQ before building ARGUS, then competed in the Agents League Rea
 ![Gradio](https://img.shields.io/badge/Gradio-F97316?style=flat-square&logo=gradio&logoColor=white)
 ![Python 3.11](https://img.shields.io/badge/Python_3.11-3776AB?style=flat-square&logo=python&logoColor=white)
 
-[Repository ↗](https://github.com/iarjunganesh/argus) · [Watch demo ↗](https://youtu.be/yaTNCgCwX4s)
+[Repository ↗](https://github.com/iarjunganesh/argus) · [Watch demo ↗](https://youtu.be/yaTNCgCwX4s) · [Microsoft write-up ↗](https://techcommunity.microsoft.com/blog/educatordeveloperblog/argus-compliance-infrastructure-that-believes-financial-access-is-a-human-right/4539074)
 
 </td>
     <td width="50%" valign="top">
@@ -54,7 +58,9 @@ Studied Foundry IQ before building ARGUS, then competed in the Agents League Rea
 [OpenAI Build Week · Devpost ↗](https://openai.devpost.com/)
 ![Live in production](https://img.shields.io/badge/Live_in_production-2EA043?style=flat-square)
 
-An agentic pipeline that turns noisy changelogs into cited, bounded, inspectable release briefings for GPU and AI-infrastructure teams — grounded and source-linked, never hand-wavy.
+problem> GPU/AI-infra changelogs are noisy and scattered — teams miss the one release that breaks their pipeline.
+
+approach> An agentic pipeline that turns noisy changelogs into cited, bounded, inspectable release briefings for GPU and AI-infrastructure teams — grounded and source-linked, never hand-wavy.
 
 ![Python 3.14](https://img.shields.io/badge/Python_3.14-3776AB?style=flat-square&logo=python&logoColor=white)
 ![FastAPI](https://img.shields.io/badge/FastAPI-009688?style=flat-square&logo=fastapi&logoColor=white)
@@ -75,22 +81,33 @@ An agentic pipeline that turns noisy changelogs into cited, bounded, inspectable
   <tr>
     <td width="50%" valign="top">
 
-### 🧮 [q1729 — the quantum taxicab](https://github.com/iarjunganesh/q1729)
-**Ramanujan's mathematics meets the NVIDIA stack**
+### 🎬 [Banker's Wrapped](https://github.com/iarjunganesh/bankers-wrapped)
+**AI-powered financial storytelling**
 
-`Independent research · math × GPU compute`
-![Active research](https://img.shields.io/badge/Active_research-58A6FF?style=flat-square)
+[Backblaze Generative Media · Devpost ↗](https://backblaze-generative-media.devpost.com/)
+![Live in production](https://img.shields.io/badge/Live_in_production-2EA043?style=flat-square)
 
-How fast can a GPU compute π — classically, and as a quantum computer? An end-to-end study from consumer RTX to datacenter H100 (CUDA C++ and CUDA-Q/cuQuantum), with an AI layer that writes up what the numbers actually show.
+problem> Nobody reads a transaction CSV for fun — but everyone will watch a 60-second recap of their own year.
 
-![CUDA C++](https://img.shields.io/badge/CUDA_C%2B%2B-76B900?style=flat-square&logo=nvidia&logoColor=white)
-![CUDA-Q](https://img.shields.io/badge/CUDA--Q-76B900?style=flat-square&logo=nvidia&logoColor=white)
-![cuQuantum](https://img.shields.io/badge/cuQuantum-76B900?style=flat-square&logo=nvidia&logoColor=white)
+approach> Spotify Wrapped, but for your bank account — an agentic pipeline that turns a transaction CSV into a personalized 60-second narrated recap video. Three of four AI steps route through the Genblaze SDK; Backblaze B2 is the source of truth, storing 14 artifacts per session with a SHA-256 apiece, so share links survive a full backend redeploy.
+
+![Backblaze B2](https://img.shields.io/badge/Backblaze_B2-E21C2A?style=flat-square&logo=backblaze&logoColor=white)
+![Genblaze SDK](https://img.shields.io/badge/Genblaze_SDK-7C3AED?style=flat-square)
+![GMI Cloud Seedream](https://img.shields.io/badge/GMI_Cloud_Seedream-0066CC?style=flat-square)
 ![NVIDIA NIM](https://img.shields.io/badge/NVIDIA_NIM-76B900?style=flat-square&logo=nvidia&logoColor=white)
-![Nemotron](https://img.shields.io/badge/Nemotron-76B900?style=flat-square&logo=nvidia&logoColor=white)
-![Python](https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white)
+![OpenAI TTS-1](https://img.shields.io/badge/OpenAI_TTS--1-412991?style=flat-square&logo=openai&logoColor=white)
+![FFmpeg](https://img.shields.io/badge/FFmpeg-007808?style=flat-square&logo=ffmpeg&logoColor=white)
+![Next.js 16](https://img.shields.io/badge/Next.js_16-000000?style=flat-square&logo=nextdotjs&logoColor=white)
+![React 19](https://img.shields.io/badge/React_19-61DAFB?style=flat-square&logo=react&logoColor=black)
+![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&logo=typescript&logoColor=white)
+![Python 3.14](https://img.shields.io/badge/Python_3.14-3776AB?style=flat-square&logo=python&logoColor=white)
+![FastAPI](https://img.shields.io/badge/FastAPI-009688?style=flat-square&logo=fastapi&logoColor=white)
+![asyncio agents](https://img.shields.io/badge/asyncio_agents-3776AB?style=flat-square&logo=python&logoColor=white)
+![Plaid Sandbox](https://img.shields.io/badge/Plaid_Sandbox-111111?style=flat-square&logo=plaid&logoColor=white)
+![Railway](https://img.shields.io/badge/Railway-0B0D0E?style=flat-square&logo=railway&logoColor=white)
+![Vercel](https://img.shields.io/badge/Vercel-000000?style=flat-square&logo=vercel&logoColor=white)
 
-[Repository ↗](https://github.com/iarjunganesh/q1729)
+[Repository ↗](https://github.com/iarjunganesh/bankers-wrapped) · [Watch demo ↗](https://youtu.be/eTw1TCcYFk4) · [Live app ↗](https://bankers-wrapped.arjunganesh.dev) · [API docs ↗](https://bankers-wrapped-api-production.up.railway.app/docs) · [Devpost ↗](https://devpost.com/software/banker-s-wrapped)
 
 </td>
     <td width="50%" valign="top">
@@ -101,7 +118,9 @@ How fast can a GPU compute π — classically, and as a quantum computer? An end
 [CockroachDB AI · Devpost ↗](https://cockroachdb-ai.devpost.com/)
 ![In development](https://img.shields.io/badge/In_development-FFB000?style=flat-square)
 
-Agentic incident-response memory that survives the agent being killed mid-incident — execution state lives in CockroachDB, not process memory, so a cold-started agent resumes from the exact interrupted step.
+problem> An agent killed mid-incident normally loses all context — and starts the investigation over from zero.
+
+approach> Agentic incident-response memory that survives the agent being killed mid-incident — execution state lives in CockroachDB, not process memory, so a cold-started agent resumes from the exact interrupted step.
 
 ![CockroachDB](https://img.shields.io/badge/CockroachDB-6933FF?style=flat-square&logo=cockroachlabs&logoColor=white)
 ![CockroachDB MCP](https://img.shields.io/badge/CockroachDB_MCP-6933FF?style=flat-square&logo=cockroachlabs&logoColor=white)
@@ -116,32 +135,64 @@ Agentic incident-response memory that survives the agent being killed mid-incide
 
 </td>
   </tr>
+</table>
+<!-- SYNC:selected-work:END -->
+
+---
+
+## Press & Recognition
+
+### What others said
+
+<!-- SYNC:press:START -->
+- [ARGUS: Compliance Infrastructure That Believes Financial Access Is a Human Right](https://techcommunity.microsoft.com/blog/educatordeveloperblog/argus-compliance-infrastructure-that-believes-financial-access-is-a-human-right/4539074) — techcommunity.microsoft.com · Guest post (July 2026)
+
+  Microsoft published my full write-up on the Educator Developer Blog, including how ARGUS coordinates five agents over A2A with citation-grounded risk scoring.
+
+
+
+<a href="https://arjunganesh.dev/#press">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://arjunganesh.dev/argus-agents-league-recognition-dark.png">
+    <source media="(prefers-color-scheme: light)" srcset="https://arjunganesh.dev/argus-agents-league-recognition-light.png">
+    <img src="https://arjunganesh.dev/argus-agents-league-recognition-light.png" alt="Microsoft Foundry Discord recognition for ARGUS after Agents League Hack for Good">
+  </picture>
+</a>
+
+
+
+_Lee Stott · Microsoft in `#agentsleague` (theme-aware image)_
+<!-- SYNC:press:END -->
+
+---
+
+## Research
+
+### What I'm exploring
+
+<!-- SYNC:research:START -->
+<table>
   <tr>
     <td width="50%" valign="top">
 
-### 🎬 [Banker's Wrapped](https://github.com/iarjunganesh/bankers-wrapped)
-**AI-powered financial storytelling**
+### 🧮 [q1729 — the quantum taxicab](https://github.com/iarjunganesh/q1729)
+**Ramanujan's mathematics meets the NVIDIA stack**
 
-[Backblaze Generative Media · Devpost ↗](https://backblaze-generative-media.devpost.com/)
-![In development](https://img.shields.io/badge/In_development-FFB000?style=flat-square)
+`Independent research · math × GPU compute`
+![Active research](https://img.shields.io/badge/Active_research-58A6FF?style=flat-square)
 
-Spotify Wrapped, but for your bank account — an agentic pipeline that turns a transaction CSV into a personalized 60-second narrated recap video.
+problem> How fast can a 100-year-old series actually run on today's silicon — classical and quantum?
 
-![Backblaze B2](https://img.shields.io/badge/Backblaze_B2-E21C2A?style=flat-square&logo=backblaze&logoColor=white)
-![Genblaze SDK](https://img.shields.io/badge/Genblaze_SDK-7C3AED?style=flat-square)
-![GMI Cloud Seedream](https://img.shields.io/badge/GMI_Cloud_Seedream-0066CC?style=flat-square)
+approach> How fast can a GPU compute π — classically, and as a quantum computer? An end-to-end study from consumer RTX to datacenter H100 (CUDA C++ and CUDA-Q/cuQuantum), with an AI layer that writes up what the numbers actually show.
+
+![CUDA C++](https://img.shields.io/badge/CUDA_C%2B%2B-76B900?style=flat-square&logo=nvidia&logoColor=white)
+![CUDA-Q](https://img.shields.io/badge/CUDA--Q-76B900?style=flat-square&logo=nvidia&logoColor=white)
+![cuQuantum](https://img.shields.io/badge/cuQuantum-76B900?style=flat-square&logo=nvidia&logoColor=white)
 ![NVIDIA NIM](https://img.shields.io/badge/NVIDIA_NIM-76B900?style=flat-square&logo=nvidia&logoColor=white)
-![OpenAI TTS-1](https://img.shields.io/badge/OpenAI_TTS--1-412991?style=flat-square&logo=openai&logoColor=white)
-![FFmpeg](https://img.shields.io/badge/FFmpeg-007808?style=flat-square&logo=ffmpeg&logoColor=white)
-![Next.js](https://img.shields.io/badge/Next.js-000000?style=flat-square&logo=nextdotjs&logoColor=white)
-![React 19](https://img.shields.io/badge/React_19-61DAFB?style=flat-square&logo=react&logoColor=black)
-![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&logo=typescript&logoColor=white)
+![Nemotron](https://img.shields.io/badge/Nemotron-76B900?style=flat-square&logo=nvidia&logoColor=white)
 ![Python](https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white)
-![FastAPI](https://img.shields.io/badge/FastAPI-009688?style=flat-square&logo=fastapi&logoColor=white)
-![Plaid Sandbox](https://img.shields.io/badge/Plaid_Sandbox-111111?style=flat-square&logo=plaid&logoColor=white)
-![Railway](https://img.shields.io/badge/Railway-0B0D0E?style=flat-square&logo=railway&logoColor=white)
 
-[Repository ↗](https://github.com/iarjunganesh/bankers-wrapped) · [Live app ↗](https://bankers-wrapped.vercel.app) · [API docs ↗](https://bankers-wrapped-api-production.up.railway.app/docs)
+[Repository ↗](https://github.com/iarjunganesh/q1729)
 
 </td>
     <td width="50%" valign="top">
@@ -151,7 +202,7 @@ Spotify Wrapped, but for your bank account — an agentic pipeline that turns a 
 </td>
   </tr>
 </table>
-<!-- SYNC:selected-work:END -->
+<!-- SYNC:research:END -->
 
 ---
 
@@ -287,17 +338,6 @@ Full certification list on [LinkedIn](https://linkedin.com/in/iarjunganesh) ↗
   <a href="https://github.com/iarjunganesh"><img src="https://img.shields.io/badge/GitHub-iarjunganesh-181717?style=for-the-badge&logo=github&logoColor=white" /></a>
   &nbsp;
   <a href="https://discord.com/users/1468742414851248301"><img src="https://img.shields.io/badge/Discord-iarjunganesh-5865F2?style=for-the-badge&logo=discord&logoColor=white" /></a>
-</p>
-
-<p align="center">
-  <a href="mailto:iarjunganesh@gmail.com">iarjunganesh@gmail.com</a> ·
-  <a href="mailto:iarjunganesh@outlook.com">iarjunganesh@outlook.com</a> ·
-  <a href="mailto:iarjunganesh@icloud.com">iarjunganesh@icloud.com</a>
-</p>
-
-<p align="center">
-  <a href="https://arjunganesh.dev/Arjun-Ganesh-CV.pdf">Résumé (PDF)</a> ·
-  <a href="https://arjunganesh.dev/Arjun-Ganesh-CV.docx">Résumé (DOCX)</a>
 </p>
 
 <p align="center">

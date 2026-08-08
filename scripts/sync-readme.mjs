@@ -28,44 +28,111 @@ const README_PATH = path.resolve(REPO_ROOT, "README.md");
 //    once isolated they can be safely evaluated.
 // ---------------------------------------------------------------------------
 
-function extractConstLiteral(source, name) {
+function extractConstExpression(source, name) {
   const declRe = new RegExp(`const\\s+${name}\\s*(:[^=]*)?=\\s*`);
   const m = declRe.exec(source);
   if (!m) throw new Error(`Could not find "const ${name}" in ${PORTFOLIO_PAGE}`);
   let i = m.index + m[0].length;
-  if (source[i] !== "[") throw new Error(`Expected "[" right after "${name} ="`);
 
-  let depth = 0;
+  let parenDepth = 0;
+  let braceDepth = 0;
+  let bracketDepth = 0;
   let inString = null;
+  let inLineComment = false;
+  let inBlockComment = false;
   let escaped = false;
   const start = i;
+
   for (; i < source.length; i++) {
     const ch = source[i];
+    const next = source[i + 1];
+
+    if (inLineComment) {
+      if (ch === "\n") inLineComment = false;
+      continue;
+    }
+
+    if (inBlockComment) {
+      if (ch === "*" && next === "/") {
+        inBlockComment = false;
+        i++;
+      }
+      continue;
+    }
+
     if (inString) {
       if (escaped) escaped = false;
       else if (ch === "\\") escaped = true;
       else if (ch === inString) inString = null;
       continue;
     }
+
+    if (ch === "/" && next === "/") {
+      inLineComment = true;
+      i++;
+      continue;
+    }
+
+    if (ch === "/" && next === "*") {
+      inBlockComment = true;
+      i++;
+      continue;
+    }
+
     if (ch === '"' || ch === "'" || ch === "`") {
       inString = ch;
       continue;
     }
-    if (ch === "[") depth++;
-    else if (ch === "]") {
-      depth--;
-      if (depth === 0) {
-        i++;
-        break;
-      }
+
+    if (ch === "(") parenDepth++;
+    else if (ch === ")") parenDepth--;
+    else if (ch === "{") braceDepth++;
+    else if (ch === "}") braceDepth--;
+    else if (ch === "[") bracketDepth++;
+    else if (ch === "]") bracketDepth--;
+    else if (ch === ";" && parenDepth === 0 && braceDepth === 0 && bracketDepth === 0) {
+      break;
     }
   }
-  return source.slice(start, i);
+
+  return source.slice(start, i).trim();
 }
 
-function evalLiteral(literal) {
+function tryEvalExpression(expression, scope) {
+  const keys = Object.keys(scope);
+  const values = Object.values(scope);
   // eslint-disable-next-line no-new-func
-  return Function(`"use strict"; return (${literal});`)();
+  return Function(...keys, `"use strict"; return (${expression});`)(...values);
+}
+
+function evalExpression(expression, source, scope, cache) {
+  try {
+    return tryEvalExpression(expression, scope);
+  } catch (err) {
+    const originalErr = err;
+    const ref = /([A-Za-z_$][\w$]*) is not defined/.exec(err?.message || "")?.[1];
+    if (!ref || ref in scope || cache.inProgress.has(ref)) {
+      throw err;
+    }
+
+    const declRe = new RegExp(`const\\s+${ref}\\s*(:[^=]*)?=\\s*`);
+    if (!declRe.test(source)) {
+      throw originalErr;
+    }
+
+    cache.inProgress.add(ref);
+    try {
+      const refExpr = extractConstExpression(source, ref);
+      const refValue = evalExpression(refExpr, source, scope, cache);
+      scope[ref] = refValue;
+    } catch {
+      throw originalErr;
+    } finally {
+      cache.inProgress.delete(ref);
+    }
+
+    return tryEvalExpression(expression, scope);
+  }
 }
 
 function loadPortfolioData() {
@@ -78,10 +145,14 @@ function loadPortfolioData() {
         `Pass --portfolio <path> if the portfolio repo lives somewhere else.\n${err.message}`
     );
   }
-  const names = ["projects", "experiments", "techGroups", "career", "certifications"];
+  const names = ["projects", "research", "experiments", "techGroups", "career", "certifications", "ARGUS_BLOG_URL"];
   const data = {};
+  const scope = {};
+  const cache = { inProgress: new Set() };
   for (const name of names) {
-    data[name] = evalLiteral(extractConstLiteral(source, name));
+    const expr = extractConstExpression(source, name);
+    data[name] = evalExpression(expr, source, scope, cache);
+    scope[name] = data[name];
   }
   return data;
 }
@@ -178,7 +249,8 @@ const TONE_COLOR = { gold: "FFB000", green: "2EA043", accent: "58A6FF", muted: "
 function statusBadge(badge) {
   const color = TONE_COLOR[badge.tone] ?? TONE_COLOR.muted;
   const url = `https://img.shields.io/badge/${shieldEncode(badge.label)}-${color}?style=flat-square`;
-  return `![${badge.label}](${url})`;
+  const image = `![${badge.label}](${url})`;
+  return badge.href ? `[${image}](${badge.href})` : image;
 }
 
 // ---------------------------------------------------------------------------
@@ -198,7 +270,11 @@ function renderProjectCard(p) {
     lines.push(p.statusBadges.map(statusBadge).join(" "));
   }
   lines.push("");
-  lines.push(p.description);
+  if (p.angle) {
+    lines.push(`problem> ${p.angle}`);
+    lines.push("");
+  }
+  lines.push(`approach> ${p.description}`);
   // ARGUS's credentials box carries a sentence hardcoded in the portfolio's
   // JSX (not in the data array) — special-cased here since it isn't
   // derivable from `projects` alone.
@@ -207,6 +283,14 @@ function renderProjectCard(p) {
     lines.push(
       "Studied Foundry IQ before building ARGUS, then competed in the Agents League Reasoning Agents track — and won Hack for Good (1 of 3)."
     );
+
+    const credentialLinks = p.credentials
+      .map((c) => `[${c.label} ${c.sub} ↗](${c.href})`)
+      .join(" · ");
+    if (credentialLinks) {
+      lines.push("");
+      lines.push(credentialLinks);
+    }
   }
   lines.push("");
   lines.push(p.stack.flat().map(stackBadge).join("\n"));
@@ -233,6 +317,10 @@ function renderSelectedWork(projects) {
   return `<table>\n${rowsHtml}\n</table>`;
 }
 
+function renderResearch(research) {
+  return renderSelectedWork(research);
+}
+
 function renderTechStack(techGroups) {
   return techGroups
     .map((g) => `**${g.label}**\n${g.items.map(stackBadge).join("\n")}`)
@@ -253,12 +341,27 @@ function renderCertifications(certifications) {
   return certifications.map((c) => `- [${c.name}](${c.href}) — *${c.issuer}*`).join("\n");
 }
 
+function renderPress(data) {
+  const argusBlogUrl = data.ARGUS_BLOG_URL;
+  const lines = [];
+  lines.push(`- [ARGUS: Compliance Infrastructure That Believes Financial Access Is a Human Right](${argusBlogUrl}) — techcommunity.microsoft.com · Guest post (July 2026)`);
+  lines.push("  Microsoft published my full write-up on the Educator Developer Blog, including how ARGUS coordinates five agents over A2A with citation-grounded risk scoring.");
+  lines.push("");
+  lines.push("[![Microsoft Foundry Discord recognition for ARGUS after Agents League Hack for Good](https://arjunganesh.dev/argus-agents-league-recognition-dark.png#gh-dark-mode-only)](https://arjunganesh.dev/#press)");
+  lines.push("[![Microsoft Foundry Discord recognition for ARGUS after Agents League Hack for Good](https://arjunganesh.dev/argus-agents-league-recognition-light.png#gh-light-mode-only)](https://arjunganesh.dev/#press)");
+  lines.push("");
+  lines.push("_Lee Stott · Microsoft in `#agentsleague` (theme-aware image)_");
+  return lines.join("\n\n");
+}
+
 // ---------------------------------------------------------------------------
 // 4. Marker-based splice into README.md
 // ---------------------------------------------------------------------------
 
 const SECTIONS = [
   { name: "selected-work", render: (d) => renderSelectedWork(d.projects) },
+  { name: "press", render: (d) => renderPress(d) },
+  { name: "research", render: (d) => renderResearch(d.research) },
   { name: "tech-stack", render: (d) => renderTechStack(d.techGroups) },
   { name: "career", render: (d) => renderCareer(d.career) },
   { name: "experiments", render: (d) => renderExperiments(d.experiments) },

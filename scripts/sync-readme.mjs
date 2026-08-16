@@ -1,13 +1,19 @@
 #!/usr/bin/env node
-// Regenerates the marked sections of README.md from the live data in
-// ../portfolio/app/page.tsx (arjunganesh.dev). Run this whenever the
-// portfolio's projects/career/certifications/tech stack change.
+// Regenerates the marked sections of README.md from the live data in the
+// portfolio repo (arjunganesh.dev). Run this whenever the portfolio's
+// projects/career/certifications/tech stack change.
 //
-// Usage: node scripts/sync-readme.mjs [--portfolio <path-to-page.tsx>] [--check]
+// Usage: node scripts/sync-readme.mjs [--portfolio <path-to-data.ts>] [--check]
 //   --check   exit 1 if README.md would change, without writing (CI-friendly)
+//
+// The portfolio moved its content out of app/page.tsx into app/data.ts, which
+// is a plain data module with no runtime imports. Node strips the type
+// annotations on import, so this script reads the real exported values instead
+// of scraping source text — if the portfolio renames or reshapes a field, this
+// fails loudly at import rather than silently emitting a stale README.
 
 import { readFileSync, writeFileSync } from "node:fs";
-import { fileURLToPath } from "node:url";
+import { fileURLToPath, pathToFileURL } from "node:url";
 import path from "node:path";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -16,149 +22,39 @@ const REPO_ROOT = path.resolve(__dirname, "..");
 const args = process.argv.slice(2);
 const checkOnly = args.includes("--check");
 const portfolioFlagIdx = args.indexOf("--portfolio");
-const PORTFOLIO_PAGE =
+const PORTFOLIO_DATA =
   portfolioFlagIdx !== -1 && args[portfolioFlagIdx + 1]
     ? path.resolve(args[portfolioFlagIdx + 1])
-    : path.resolve(REPO_ROOT, "..", "portfolio", "app", "page.tsx");
+    : path.resolve(REPO_ROOT, "..", "portfolio", "app", "data.ts");
 const README_PATH = path.resolve(REPO_ROOT, "README.md");
+const SITE = "https://arjunganesh.dev";
 
-// ---------------------------------------------------------------------------
-// 1. Extract plain-data array literals out of the portfolio's page.tsx.
-//    These consts are pure JS literals (no JSX/functions inside them), so
-//    once isolated they can be safely evaluated.
-// ---------------------------------------------------------------------------
-
-function extractConstExpression(source, name) {
-  const declRe = new RegExp(`const\\s+${name}\\s*(:[^=]*)?=\\s*`);
-  const m = declRe.exec(source);
-  if (!m) throw new Error(`Could not find "const ${name}" in ${PORTFOLIO_PAGE}`);
-  let i = m.index + m[0].length;
-
-  let parenDepth = 0;
-  let braceDepth = 0;
-  let bracketDepth = 0;
-  let inString = null;
-  let inLineComment = false;
-  let inBlockComment = false;
-  let escaped = false;
-  const start = i;
-
-  for (; i < source.length; i++) {
-    const ch = source[i];
-    const next = source[i + 1];
-
-    if (inLineComment) {
-      if (ch === "\n") inLineComment = false;
-      continue;
-    }
-
-    if (inBlockComment) {
-      if (ch === "*" && next === "/") {
-        inBlockComment = false;
-        i++;
-      }
-      continue;
-    }
-
-    if (inString) {
-      if (escaped) escaped = false;
-      else if (ch === "\\") escaped = true;
-      else if (ch === inString) inString = null;
-      continue;
-    }
-
-    if (ch === "/" && next === "/") {
-      inLineComment = true;
-      i++;
-      continue;
-    }
-
-    if (ch === "/" && next === "*") {
-      inBlockComment = true;
-      i++;
-      continue;
-    }
-
-    if (ch === '"' || ch === "'" || ch === "`") {
-      inString = ch;
-      continue;
-    }
-
-    if (ch === "(") parenDepth++;
-    else if (ch === ")") parenDepth--;
-    else if (ch === "{") braceDepth++;
-    else if (ch === "}") braceDepth--;
-    else if (ch === "[") bracketDepth++;
-    else if (ch === "]") bracketDepth--;
-    else if (ch === ";" && parenDepth === 0 && braceDepth === 0 && bracketDepth === 0) {
-      break;
-    }
-  }
-
-  return source.slice(start, i).trim();
-}
-
-function tryEvalExpression(expression, scope) {
-  const keys = Object.keys(scope);
-  const values = Object.values(scope);
-  // eslint-disable-next-line no-new-func
-  return Function(...keys, `"use strict"; return (${expression});`)(...values);
-}
-
-function evalExpression(expression, source, scope, cache) {
+async function loadPortfolioData() {
   try {
-    return tryEvalExpression(expression, scope);
-  } catch (err) {
-    const originalErr = err;
-    const ref = /([A-Za-z_$][\w$]*) is not defined/.exec(err?.message || "")?.[1];
-    if (!ref || ref in scope || cache.inProgress.has(ref)) {
-      throw err;
+    const mod = await import(pathToFileURL(PORTFOLIO_DATA).href);
+    const required = [
+      "projects",
+      "experiments",
+      "techStack",
+      "career",
+      "certifications",
+      "ARGUS_BLOG_URL",
+    ];
+    const missing = required.filter((k) => mod[k] === undefined);
+    if (missing.length) {
+      throw new Error(`data.ts is missing expected export(s): ${missing.join(", ")}`);
     }
-
-    const declRe = new RegExp(`const\\s+${ref}\\s*(:[^=]*)?=\\s*`);
-    if (!declRe.test(source)) {
-      throw originalErr;
-    }
-
-    cache.inProgress.add(ref);
-    try {
-      const refExpr = extractConstExpression(source, ref);
-      const refValue = evalExpression(refExpr, source, scope, cache);
-      scope[ref] = refValue;
-    } catch {
-      throw originalErr;
-    } finally {
-      cache.inProgress.delete(ref);
-    }
-
-    return tryEvalExpression(expression, scope);
-  }
-}
-
-function loadPortfolioData() {
-  let source;
-  try {
-    source = readFileSync(PORTFOLIO_PAGE, "utf8");
+    return mod;
   } catch (err) {
     throw new Error(
-      `Could not read portfolio page.tsx at ${PORTFOLIO_PAGE}\n` +
-        `Pass --portfolio <path> if the portfolio repo lives somewhere else.\n${err.message}`
+      `Could not load portfolio data from ${PORTFOLIO_DATA}\n` +
+        `Pass --portfolio <path-to-data.ts> if the portfolio repo lives somewhere else.\n${err.message}`
     );
   }
-  const names = ["projects", "research", "experiments", "techGroups", "career", "certifications", "ARGUS_BLOG_URL"];
-  const data = {};
-  const scope = {};
-  const cache = { inProgress: new Set() };
-  for (const name of names) {
-    const expr = extractConstExpression(source, name);
-    data[name] = evalExpression(expr, source, scope, cache);
-    scope[name] = data[name];
-  }
-  return data;
 }
 
 // ---------------------------------------------------------------------------
-// 2. Badge rendering helpers
+// Presentation config — deliberately lives here, not in the portfolio data.
 // ---------------------------------------------------------------------------
 
 // Exact-label -> {logo, color} lookup for shields.io badges. Extend this as
@@ -194,6 +90,7 @@ const BADGE_META = {
   PostgreSQL: { color: "336791", logo: "postgresql" },
   pgvector: { color: "336791", logo: "postgresql" },
   Vercel: { color: "000000", logo: "vercel" },
+  "Vercel Edge Networks": { color: "000000", logo: "vercel" },
   Railway: { color: "0B0D0E", logo: "railway" },
   "CUDA C++": { color: "76B900", logo: "nvidia" },
   "CUDA-Q": { color: "76B900", logo: "nvidia" },
@@ -212,6 +109,38 @@ const BADGE_META = {
   "OpenAI TTS-1": { color: "412991", logo: "openai" },
   FFmpeg: { color: "007808", logo: "ffmpeg" },
   "Plaid Sandbox": { color: "111111", logo: "plaid" },
+  Framer: { color: "0055FF", logo: "framer" },
+  // Google Cloud / Gemini — added with Bastion.
+  "Google ADK": { color: "4285F4", logo: "google" },
+  Gemini: { color: "8E75B2", logo: "googlegemini" },
+  "Vertex AI": { color: "4285F4", logo: "googlecloud" },
+  "Cloud Run": { color: "4285F4", logo: "googlecloud" },
+  "Agent Runtime": { color: "4285F4", logo: "googlecloud" },
+  "Memory Bank": { color: "4285F4", logo: "googlecloud" },
+  "A2A Gateway": { color: "00C7B7", logo: "probot" },
+  Firestore: { color: "FFCA28", logo: "firebase", logoColor: "black" },
+  "Pub/Sub": { color: "4285F4", logo: "googlecloud" },
+  Eventarc: { color: "4285F4", logo: "googlecloud" },
+  "Model Armor": { color: "4285F4", logo: "googlecloud" },
+};
+
+// Card emoji per project key. Presentation only — the portfolio data has no
+// emoji field, so new projects fall back to a neutral marker.
+const PROJECT_EMOJI = {
+  argus: "🛡️",
+  bastion: "🏰",
+  drift: "📡",
+  continuum: "🧠",
+  "bankers-wrapped": "🎁",
+};
+
+// Status string -> shields colour. Keep in step with the portfolio's status
+// vocabulary; unknown values render neutral grey rather than failing.
+const STATUS_COLOR = {
+  "Live in production": "2EA043",
+  "In development": "FFB000",
+  Active: "58A6FF",
+  Submitted: "58A6FF",
 };
 
 // Strip a trailing version number ("Python 3.11" -> "Python") to widen
@@ -244,61 +173,43 @@ function stackBadge(label) {
   return `![${label}](${url})`;
 }
 
-const TONE_COLOR = { gold: "FFB000", green: "2EA043", accent: "58A6FF", muted: "30363D" };
-
-function statusBadge(badge) {
-  const color = TONE_COLOR[badge.tone] ?? TONE_COLOR.muted;
-  const url = `https://img.shields.io/badge/${shieldEncode(badge.label)}-${color}?style=flat-square`;
-  const image = `![${badge.label}](${url})`;
-  return badge.href ? `[${image}](${badge.href})` : image;
+function plainBadge(label, color, href) {
+  const url = `https://img.shields.io/badge/${shieldEncode(label)}-${color}?style=flat-square`;
+  const image = `![${label}](${url})`;
+  return href ? `[${image}](${href})` : image;
 }
 
 // ---------------------------------------------------------------------------
-// 3. Section renderers
+// Section renderers
 // ---------------------------------------------------------------------------
 
 function renderProjectCard(p) {
   const lines = [];
-  lines.push(`### ${p.emoji} [${p.name}](${p.href})`);
+  const emoji = PROJECT_EMOJI[p.key] ?? "▪️";
+  lines.push(`### ${emoji} [${p.name}](${p.href})`);
   lines.push(`**${p.tagline}**`);
   lines.push("");
-  if (p.context) {
-    const contextText = p.contextHref ? `[${p.context} ↗](${p.contextHref})` : `\`${p.context}\``;
-    lines.push(contextText);
-  }
-  if (p.statusBadges?.length) {
-    lines.push(p.statusBadges.map(statusBadge).join(" "));
-  }
-  lines.push("");
-  if (p.angle) {
-    lines.push(`problem> ${p.angle}`);
-    lines.push("");
-  }
-  lines.push(`approach> ${p.description}`);
-  // ARGUS's credentials box carries a sentence hardcoded in the portfolio's
-  // JSX (not in the data array) — special-cased here since it isn't
-  // derivable from `projects` alone.
-  if (p.key === "argus" && p.credentials?.length) {
-    lines.push("");
-    lines.push(
-      "Studied Foundry IQ before building ARGUS, then competed in the Agents League Reasoning Agents track — and won Hack for Good (1 of 3)."
-    );
 
-    const credentialLinks = p.credentials
-      .map((c) => `[${c.label} ${c.sub} ↗](${c.href})`)
-      .join(" · ");
-    if (credentialLinks) {
-      lines.push("");
-      lines.push(credentialLinks);
-    }
+  if (p.context) {
+    lines.push(p.contextHref ? `[${p.context} ↗](${p.contextHref})` : `\`${p.context}\``);
+  }
+
+  const badges = [plainBadge(p.status, STATUS_COLOR[p.status] ?? "30363D")];
+  if (p.flag) badges.push(plainBadge(`🏆 ${p.flag}`, "FFB000"));
+  lines.push(badges.join(" "));
+  lines.push("");
+
+  lines.push(`problem> ${p.problem}`);
+  lines.push("");
+  lines.push(`approach> ${p.solution}`);
+  if (p.impact) {
+    lines.push("");
+    lines.push(`impact> ${p.impact}`);
   }
   lines.push("");
-  lines.push(p.stack.flat().map(stackBadge).join("\n"));
+  lines.push(p.stack.map(stackBadge).join("\n"));
   lines.push("");
-  const links = [`[Repository ↗](${p.href})`];
-  if (p.demoHref) links.push(`[Watch demo ↗](${p.demoHref})`);
-  for (const l of p.liveLinks ?? []) links.push(`[${l.label} ↗](${l.href})`);
-  lines.push(links.join(" · "));
+  lines.push((p.links ?? []).map((l) => `[${l.label} ↗](${l.href})`).join(" · "));
   return lines.join("\n");
 }
 
@@ -317,19 +228,15 @@ function renderSelectedWork(projects) {
   return `<table>\n${rowsHtml}\n</table>`;
 }
 
-function renderResearch(research) {
-  return renderSelectedWork(research);
-}
-
-function renderTechStack(techGroups) {
-  return techGroups
+function renderTechStack(techStack) {
+  return techStack
     .map((g) => `**${g.label}**\n${g.items.map(stackBadge).join("\n")}`)
     .join("\n\n");
 }
 
 function renderCareer(career) {
   return career
-    .map((c) => `**${c.period} · ${c.role} · ${c.company}** — ${c.location}\n${c.note}`)
+    .map((c) => `**${c.period} · ${c.title} · ${c.company}** — ${c.location}\n${c.note}`)
     .join("\n\n");
 }
 
@@ -342,27 +249,46 @@ function renderCertifications(certifications) {
 }
 
 function renderPress(data) {
-  const argusBlogUrl = data.ARGUS_BLOG_URL;
   const lines = [];
-  lines.push(`- [ARGUS: Compliance Infrastructure That Believes Financial Access Is a Human Right](${argusBlogUrl}) — techcommunity.microsoft.com · Guest post (July 2026)`);
-  lines.push("  Microsoft published my full write-up on the Educator Developer Blog, including how ARGUS coordinates five agents over A2A with citation-grounded risk scoring.");
+  lines.push(
+    `- [ARGUS: Compliance Infrastructure That Believes Financial Access Is a Human Right](${data.ARGUS_BLOG_URL}) — techcommunity.microsoft.com · Guest post (July 2026)`
+  );
+  lines.push(
+    "  Microsoft published my full write-up on the Educator Developer Blog, including how ARGUS coordinates five agents over A2A with citation-grounded risk scoring."
+  );
   lines.push("");
-  lines.push("[![Microsoft Foundry Discord recognition for ARGUS after Agents League Hack for Good](https://arjunganesh.dev/argus-agents-league-recognition-dark.png#gh-dark-mode-only)](https://arjunganesh.dev/#press)");
-  lines.push("[![Microsoft Foundry Discord recognition for ARGUS after Agents League Hack for Good](https://arjunganesh.dev/argus-agents-league-recognition-light.png#gh-light-mode-only)](https://arjunganesh.dev/#press)");
+  // Theme switching must use <picture>, not the older #gh-dark-mode-only URL
+  // fragment: GitHub camo-proxies externally hosted images and the rewritten
+  // src drops the fragment (it survives only in data-canonical-src), so the
+  // theme CSS never matches and BOTH images render. The media query on
+  // <source> is camo-safe because it is an attribute, not part of the URL.
+  //
+  // The portfolio is route-based now, so press lives at /press, not #press.
+  const alt = "Microsoft Foundry Discord recognition for ARGUS after Agents League Hack for Good";
+  lines.push(
+    [
+      `<a href="${SITE}/press">`,
+      `  <picture>`,
+      `    <source media="(prefers-color-scheme: dark)" srcset="${SITE}/argus-agents-league-recognition-dark.png">`,
+      `    <source media="(prefers-color-scheme: light)" srcset="${SITE}/argus-agents-league-recognition-light.png">`,
+      `    <img alt="${alt}" src="${SITE}/argus-agents-league-recognition-light.png">`,
+      `  </picture>`,
+      `</a>`,
+    ].join("\n")
+  );
   lines.push("");
   lines.push("_Lee Stott · Microsoft in `#agentsleague` (theme-aware image)_");
   return lines.join("\n\n");
 }
 
 // ---------------------------------------------------------------------------
-// 4. Marker-based splice into README.md
+// Marker-based splice into README.md
 // ---------------------------------------------------------------------------
 
 const SECTIONS = [
   { name: "selected-work", render: (d) => renderSelectedWork(d.projects) },
   { name: "press", render: (d) => renderPress(d) },
-  { name: "research", render: (d) => renderResearch(d.research) },
-  { name: "tech-stack", render: (d) => renderTechStack(d.techGroups) },
+  { name: "tech-stack", render: (d) => renderTechStack(d.techStack) },
   { name: "career", render: (d) => renderCareer(d.career) },
   { name: "experiments", render: (d) => renderExperiments(d.experiments) },
   { name: "certifications", render: (d) => renderCertifications(d.certifications) },
@@ -381,14 +307,14 @@ function spliceSection(readme, name, content) {
   return `${before}\n${content}\n${after}`;
 }
 
-function main() {
-  const data = loadPortfolioData();
-  let readme = readFileSync(README_PATH, "utf8");
+async function main() {
+  const data = await loadPortfolioData();
+  const original = readFileSync(README_PATH, "utf8");
+  let readme = original;
   for (const { name, render } of SECTIONS) {
     readme = spliceSection(readme, name, render(data));
   }
 
-  const original = readFileSync(README_PATH, "utf8");
   if (readme === original) {
     console.log("README.md is already in sync with the portfolio.");
     return;
@@ -403,4 +329,4 @@ function main() {
   console.log("README.md synced from portfolio data.");
 }
 
-main();
+await main();

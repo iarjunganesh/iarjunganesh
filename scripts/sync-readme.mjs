@@ -26,6 +26,8 @@ const PORTFOLIO_DATA =
   portfolioFlagIdx !== -1 && args[portfolioFlagIdx + 1]
     ? path.resolve(args[portfolioFlagIdx + 1])
     : path.resolve(REPO_ROOT, "..", "portfolio", "app", "data.ts");
+// The years-shipping figure is derived, never typed — same source the site uses.
+const PORTFOLIO_CONFIG = path.resolve(path.dirname(PORTFOLIO_DATA), "site-config.ts");
 const README_PATH = path.resolve(REPO_ROOT, "README.md");
 const SITE = "https://arjunganesh.dev";
 
@@ -33,18 +35,28 @@ async function loadPortfolioData() {
   try {
     const mod = await import(pathToFileURL(PORTFOLIO_DATA).href);
     const required = [
-      "projects",
-      "experiments",
-      "techStack",
+      "featuredProjects",
+      "otherProjects",
+      "PROJECT_STATUS",
+      "research",
+      "technicalNotebooks",
       "career",
       "certifications",
       "ARGUS_BLOG_URL",
+      "ARGUS_WINNERS_URL",
     ];
     const missing = required.filter((k) => mod[k] === undefined);
     if (missing.length) {
       throw new Error(`data.ts is missing expected export(s): ${missing.join(", ")}`);
     }
-    return mod;
+    const config = await import(pathToFileURL(PORTFOLIO_CONFIG).href);
+    if (config.CAREER_START_DATE === undefined) {
+      throw new Error("site-config.ts is missing CAREER_START_DATE");
+    }
+    STATUS_LABELS = Object.fromEntries(
+      Object.entries(mod.PROJECT_STATUS).map(([key, v]) => [key, v.label])
+    );
+    return { ...mod, CAREER_START_DATE: config.CAREER_START_DATE };
   } catch (err) {
     throw new Error(
       `Could not load portfolio data from ${PORTFOLIO_DATA}\n` +
@@ -68,8 +80,6 @@ const BADGE_META = {
   A2A: { color: "00C7B7", logo: "probot" },
   "Azure AI Search": { color: "0089D0", logo: "microsoftazure" },
   "Cosmos DB": { color: "0089D0", logo: "microsoftazure" },
-  "RAG hybrid search": { color: "FF6F00", logo: "elasticsearch" },
-  "RAG Hybrid Search": { color: "FF6F00", logo: "elasticsearch" },
   MCP: { color: "00C7B7", logo: "protocolsdotio" },
   Gradio: { color: "F97316", logo: "gradio" },
   "Microsoft Azure": { color: "0089D0", logo: "microsoftazure" },
@@ -109,7 +119,11 @@ const BADGE_META = {
   "OpenAI TTS-1": { color: "412991", logo: "openai" },
   FFmpeg: { color: "007808", logo: "ffmpeg" },
   "Plaid Sandbox": { color: "111111", logo: "plaid" },
-  Framer: { color: "0055FF", logo: "framer" },
+  "Azure Document Intelligence": { color: "0089D0", logo: "microsoftazure" },
+  "Gemini 3.5 Flash": { color: "8E75B2", logo: "googlegemini" },
+  "OpenAI TTS": { color: "412991", logo: "openai" },
+  Plaid: { color: "111111", logo: "plaid" },
+  SQLite: { color: "003B57", logo: "sqlite" },
   // Google Cloud / Gemini — added with Bastion.
   "Google ADK": { color: "4285F4", logo: "google" },
   Gemini: { color: "8E75B2", logo: "googlegemini" },
@@ -124,6 +138,9 @@ const BADGE_META = {
   "Model Armor": { color: "4285F4", logo: "googlecloud" },
 };
 
+// Matches ProjectCard's stack.slice(0, 4) on arjunganesh.dev.
+const CARD_STACK_LIMIT = 4;
+
 // Card emoji per project key. Presentation only — the portfolio data has no
 // emoji field, so new projects fall back to a neutral marker.
 const PROJECT_EMOJI = {
@@ -134,14 +151,60 @@ const PROJECT_EMOJI = {
   "bankers-wrapped": "🎁",
 };
 
-// Status string -> shields colour. Keep in step with the portfolio's status
-// vocabulary; unknown values render neutral grey rather than failing.
+// Rendered status label -> shields colour. The portfolio's vocabulary answers
+// one question — can a reader reach it right now — so these key off
+// PROJECT_STATUS[...].label rather than the raw key. Unknown values render
+// neutral grey rather than failing.
+// Filled from the portfolio's PROJECT_STATUS at load, so the labels can never
+// drift from what the site renders.
+let STATUS_LABELS = {};
+
 const STATUS_COLOR = {
-  "Live in production": "2EA043",
-  "In development": "FFB000",
+  Live: "2EA043",
   Active: "58A6FF",
-  Submitted: "58A6FF",
+  Archived: "6E7681",
 };
+
+// Skills, not project stacks: a career-level list no single repo can supply,
+// so the grouping stays here as presentation. Every entry must still be
+// something the portfolio or a linked repo actually evidences.
+const STACK_GROUPS = [
+  {
+    label: "Languages & frameworks",
+    items: ["Java", "Spring Boot", "Quarkus", "Python", "FastAPI", "TypeScript", "React", "Next.js"],
+  },
+  {
+    label: "Agentic AI & LLM",
+    items: [
+      "Azure AI Foundry",
+      "Foundry IQ",
+      "Semantic Kernel",
+      "Google ADK",
+      "Vertex AI",
+      "A2A",
+      "MCP",
+      "NVIDIA NIM",
+      "Amazon Bedrock",
+    ],
+  },
+  {
+    label: "Cloud & infrastructure",
+    items: [
+      "Microsoft Azure",
+      "Amazon AWS",
+      "OpenShift",
+      "CockroachDB",
+      "PostgreSQL",
+      "Backblaze B2",
+      "Railway",
+      "Vercel",
+    ],
+  },
+  {
+    label: "AI infra, GPU & observability",
+    items: ["CUDA C++", "CUDA-Q", "cuQuantum", "NVIDIA CUDA", "pgvector", "OpenTelemetry", "KQL"],
+  },
+];
 
 // Strip a trailing version number ("Python 3.11" -> "Python") to widen
 // lookups without needing every version pinned in BADGE_META.
@@ -194,7 +257,8 @@ function renderProjectCard(p) {
     lines.push(p.contextHref ? `[${p.context} ↗](${p.contextHref})` : `\`${p.context}\``);
   }
 
-  const badges = [plainBadge(p.status, STATUS_COLOR[p.status] ?? "30363D")];
+  const status = STATUS_LABELS[p.status] ?? p.status;
+  const badges = [plainBadge(status, STATUS_COLOR[status] ?? "30363D")];
   if (p.flag) badges.push(plainBadge(`🏆 ${p.flag}`, "FFB000"));
   lines.push(badges.join(" "));
   lines.push("");
@@ -207,31 +271,58 @@ function renderProjectCard(p) {
     lines.push(`impact> ${p.impact}`);
   }
   lines.push("");
-  lines.push(p.stack.map(stackBadge).join("\n"));
+  // Same cut the site makes in ProjectCard: the first four are enough to say
+  // what a project is built on. Showing all of them made the badge block
+  // roughly two thirds of every card and left the three columns uneven,
+  // because the stacks differ in length (6 to 12 entries).
+  lines.push(p.stack.slice(0, CARD_STACK_LIMIT).map(stackBadge).join("\n"));
   lines.push("");
-  lines.push((p.links ?? []).map((l) => `[${l.label} ↗](${l.href})`).join(" · "));
+  const resources = (p.links ?? []).map((l) => `[${l.label} ↗](${l.href})`);
+  // The case study is the substantive read, so it leads the resource row.
+  if (p.caseStudy) resources.unshift(`[Case study →](${SITE}/work/${p.key})`);
+  lines.push(resources.join(" · "));
   return lines.join("\n");
 }
 
-function renderSelectedWork(projects) {
-  const cards = projects.map(renderProjectCard);
-  const rows = [];
-  for (let i = 0; i < cards.length; i += 2) {
-    rows.push([cards[i], cards[i + 1] ?? ""]);
-  }
-  const rowsHtml = rows
-    .map(
-      ([left, right]) =>
-        `  <tr>\n    <td width="50%" valign="top">\n\n${left}\n\n</td>\n    <td width="50%" valign="top">\n\n${right}\n\n</td>\n  </tr>`
-    )
-    .join("\n");
-  return `<table>\n${rowsHtml}\n</table>`;
+// Archived work keeps its evidence — it just no longer needs a card.
+function renderArchive(projects) {
+  if (!projects.length) return "";
+  const rows = projects.map((p) => {
+    const emoji = PROJECT_EMOJI[p.key] ?? "▪️";
+    const links = [];
+    if (p.caseStudy) links.push(`[case study](${SITE}/work/${p.key})`);
+    for (const l of p.links ?? []) links.push(`[${l.label.toLowerCase()}](${l.href})`);
+    return `- ${emoji} **[${p.name}](${p.href})** — ${p.tagline}. ${links.join(" · ")}`;
+  });
+  return [
+    "",
+    "**Archived** — hosting retired; the source, recordings and submissions remain.",
+    "",
+    ...rows,
+  ].join("\n");
 }
 
-function renderTechStack(techStack) {
-  return techStack
-    .map((g) => `**${g.label}**\n${g.items.map(stackBadge).join("\n")}`)
-    .join("\n\n");
+function renderSelectedWork(data) {
+  const cards = data.featuredProjects.map(renderProjectCard);
+  // One row, one column per featured project, so the three read side by side
+  // in the same order as /work. Widths are derived, so adding a fourth does
+  // not silently wrap it onto a second row.
+  const width = (100 / cards.length).toFixed(2);
+  const cells = cards
+    .map(
+      (card) =>
+        `    <td width="${width}%" valign="top">\n\n${card}\n\n</td>`
+    )
+    .join("\n");
+  return `<table>\n  <tr>\n${cells}\n  </tr>\n</table>\n${renderArchive(
+    data.otherProjects
+  )}`;
+}
+
+function renderTechStack() {
+  return STACK_GROUPS.map(
+    (g) => `**${g.label}**\n${g.items.map(stackBadge).join("\n")}`
+  ).join("\n\n");
 }
 
 function renderCareer(career) {
@@ -240,8 +331,47 @@ function renderCareer(career) {
     .join("\n\n");
 }
 
-function renderExperiments(experiments) {
-  return experiments.map((e) => `- **[${e.name}](${e.href})** — ${e.desc}`).join("\n");
+function renderExperiments(data) {
+  // Research entries carry a measured result. Lead with it rather than a
+  // blurb — the finding is the reason the repo is worth opening.
+  const investigations = data.research.map(
+    (r) => `- **[${r.name}](${r.href})** — ${r.result}`
+  );
+  const notebooks = data.technicalNotebooks.map(
+    (n) => `- **[${n.name}](${n.href})** — ${n.desc}`
+  );
+  return [...investigations, ...notebooks].join("\n");
+}
+
+// Whole years since the first day of the career, in the site's own timezone,
+// so the profile cannot drift from arjunganesh.dev on an anniversary.
+function completedYears(startDate) {
+  const [y, m, d] = startDate.split("-").map(Number);
+  const parts = Object.fromEntries(
+    new Intl.DateTimeFormat("en-CA", {
+      timeZone: "Europe/Stockholm",
+      year: "numeric",
+      month: "2-digit",
+      day: "2-digit",
+    })
+      .formatToParts(new Date())
+      .map((x) => [x.type, x.value])
+  );
+  const before = Number(parts.month) < m || (Number(parts.month) === m && Number(parts.day) < d);
+  return Number(parts.year) - y - Number(before);
+}
+
+function renderAbout(data) {
+  const years = completedYears(data.CAREER_START_DATE);
+  return [
+    `Senior engineer, ${years}+ years in distributed systems. I build anti-financial-crime systems at a Nordic bank by day, and solo-ship agentic-AI products — and win hackathons — by night.`,
+    "",
+    "I care about AI that explains its reasoning, leaves an audit trail, and actually works in production.",
+    "",
+    "- 🏦 Software Engineer @ Swedbank — anti-financial crime & AML",
+    "- 🤖 Building governed agent fleets on Azure AI Foundry, Google ADK, A2A and MCP",
+    "- 🧮 Researching GPU & quantum compute — q1729, the quantum taxicab",
+  ].join("\n");
 }
 
 function renderCertifications(certifications) {
@@ -251,10 +381,13 @@ function renderCertifications(certifications) {
 function renderPress(data) {
   const lines = [];
   lines.push(
-    `- [ARGUS: Compliance Infrastructure That Believes Financial Access Is a Human Right](${data.ARGUS_BLOG_URL}) — techcommunity.microsoft.com · Guest post (July 2026)`
+    `- [Agents League — celebrating the builders](${data.ARGUS_WINNERS_URL}) — techcommunity.microsoft.com · Microsoft's winners announcement, ARGUS named 1 of 3 for Hack for Good`
   );
   lines.push(
-    "  Microsoft published my full write-up on the Educator Developer Blog, including how ARGUS coordinates five agents over A2A with citation-grounded risk scoring."
+    `- [ARGUS: Compliance Infrastructure That Believes Financial Access Is a Human Right](${data.ARGUS_BLOG_URL}) — techcommunity.microsoft.com · Guest post`
+  );
+  lines.push(
+    "  Microsoft published my full write-up on the Educator Developer Blog, including how ARGUS fans four specialist agents out over A2A and fans their findings in to a fifth, with citation-grounded risk scoring."
   );
   lines.push("");
   // Theme switching must use <picture>, not the older #gh-dark-mode-only URL
@@ -269,9 +402,9 @@ function renderPress(data) {
     [
       `<a href="${SITE}/press">`,
       `  <picture>`,
-      `    <source media="(prefers-color-scheme: dark)" srcset="${SITE}/argus-agents-league-recognition-dark.png">`,
-      `    <source media="(prefers-color-scheme: light)" srcset="${SITE}/argus-agents-league-recognition-light.png">`,
-      `    <img alt="${alt}" src="${SITE}/argus-agents-league-recognition-light.png">`,
+      `    <source media="(prefers-color-scheme: dark)" srcset="${SITE}/argus-recognition-quote-dark.png">`,
+      `    <source media="(prefers-color-scheme: light)" srcset="${SITE}/argus-recognition-quote-light.png">`,
+      `    <img alt="${alt}" src="${SITE}/argus-recognition-quote-light.png">`,
       `  </picture>`,
       `</a>`,
     ].join("\n")
@@ -286,11 +419,12 @@ function renderPress(data) {
 // ---------------------------------------------------------------------------
 
 const SECTIONS = [
-  { name: "selected-work", render: (d) => renderSelectedWork(d.projects) },
+  { name: "about", render: (d) => renderAbout(d) },
+  { name: "selected-work", render: (d) => renderSelectedWork(d) },
   { name: "press", render: (d) => renderPress(d) },
-  { name: "tech-stack", render: (d) => renderTechStack(d.techStack) },
+  { name: "tech-stack", render: () => renderTechStack() },
   { name: "career", render: (d) => renderCareer(d.career) },
-  { name: "experiments", render: (d) => renderExperiments(d.experiments) },
+  { name: "experiments", render: (d) => renderExperiments(d) },
   { name: "certifications", render: (d) => renderCertifications(d.certifications) },
 ];
 
